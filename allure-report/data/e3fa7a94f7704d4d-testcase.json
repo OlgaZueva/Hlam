@@ -1,0 +1,128 @@
+{
+  "uid" : "e3fa7a94f7704d4d",
+  "name" : "RTestVsMSCRUS",
+  "title" : "Сравнение данных записей таблиц ADGAND в RTest и MSCRUS",
+  "time" : {
+    "start" : 1490196571780,
+    "stop" : 1490196576655,
+    "duration" : 4875
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 6
+  },
+  "failure" : null,
+  "description" : {
+    "value" : "Сравнение данных записей таблиц ADGAND ",
+    "type" : "TEXT"
+  },
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "7565355d361d5b0f",
+    "name" : "Default Suite",
+    "title" : "Default suite"
+  },
+  "steps" : [ {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='NOINRU', ACCOUNTANT='N', AD_LOGIN='NFadeeva', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='NOINRU', ACCOUNTANT='N', AD_LOGIN='NFadeeva', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490196573341,
+      "stop" : 1490196573341,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='NOIABE', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='NOIABE', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490196573984,
+      "stop" : 1490196573984,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='SPBIEV', ACCOUNTANT='N', AD_LOGIN='IEvtyukov', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='SPBIEV', ACCOUNTANT='N', AD_LOGIN='IEvtyukov', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490196574641,
+      "stop" : 1490196574641,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='SPBTTO', ACCOUNTANT='N', AD_LOGIN='TTolmacheva', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=1}               Adgang{VOR_REF='SPBTTO', ACCOUNTANT='N', AD_LOGIN='TTolmacheva', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=1}",
+    "time" : {
+      "start" : 1490196575286,
+      "stop" : 1490196575286,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='SPBAPK', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='SPBAPK', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490196575934,
+      "stop" : 1490196575934,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='KLDATI', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='KLDATI', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=36, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490196576567,
+      "stop" : 1490196576567,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Default Suite"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}

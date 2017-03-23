@@ -1,0 +1,128 @@
+{
+  "uid" : "db8742f9dfe92b41",
+  "name" : "ITestVsUNITY",
+  "title" : "Сравнение данных записей таблиц ADGAND в ITest и UNITY",
+  "time" : {
+    "start" : 1490202154094,
+    "stop" : 1490202162595,
+    "duration" : 8501
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 6
+  },
+  "failure" : null,
+  "description" : {
+    "value" : "Сравнение данных записей таблиц ADGAND ",
+    "type" : "TEXT"
+  },
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "a1507d54bd67aca3",
+    "name" : "RTestSuit",
+    "title" : "R test suit"
+  },
+  "steps" : [ {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='SCAN', ACCOUNTANT='Y', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='N', START_SEL=5, UTS_ADMIN='J', UTS_GROUP='null', UTS_LEVEL=1}               Adgang{VOR_REF='SCAN', ACCOUNTANT='Y', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='N', START_SEL=5, UTS_ADMIN='J', UTS_GROUP='null', UTS_LEVEL=1}",
+    "time" : {
+      "start" : 1490202159264,
+      "stop" : 1490202159288,
+      "duration" : 24
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='VDR', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=45, UTS_ADMIN='J', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='VDR', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=45, UTS_ADMIN='J', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490202159921,
+      "stop" : 1490202159921,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='OSLJTR', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=12, UTS_ADMIN='N', UTS_GROUP='LOC', UTS_LEVEL=1}               Adgang{VOR_REF='OSLJTR', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=12, UTS_ADMIN='N', UTS_GROUP='LOC', UTS_LEVEL=1}",
+    "time" : {
+      "start" : 1490202160571,
+      "stop" : 1490202160572,
+      "duration" : 1
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='HKITBE', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=13, UTS_ADMIN='N', UTS_GROUP='LOC', UTS_LEVEL=3}               Adgang{VOR_REF='HKITBE', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=13, UTS_ADMIN='N', UTS_GROUP='LOC', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490202161205,
+      "stop" : 1490202161205,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='WAWMOL', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=16, UTS_ADMIN='N', UTS_GROUP='LOC', UTS_LEVEL=3}               Adgang{VOR_REF='WAWMOL', ACCOUNTANT='N', AD_LOGIN='null', AD_USER_ONLY='null', FGAC='Y', START_SEL=16, UTS_ADMIN='N', UTS_GROUP='LOC', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490202161853,
+      "stop" : 1490202161853,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "asertRowsAdgang",
+    "title" : "Сравнение записей ADGANG: Adgang{VOR_REF='LTSRA', ACCOUNTANT='N', AD_LOGIN='SRauktyte', AD_USER_ONLY='null', FGAC='Y', START_SEL=38, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}               Adgang{VOR_REF='LTSRA', ACCOUNTANT='N', AD_LOGIN='SRauktyte', AD_USER_ONLY='null', FGAC='Y', START_SEL=38, UTS_ADMIN='N', UTS_GROUP='null', UTS_LEVEL=3}",
+    "time" : {
+      "start" : 1490202162503,
+      "stop" : 1490202162503,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "RTestSuit"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}

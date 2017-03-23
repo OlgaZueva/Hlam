@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1490261010736" stop="1490261028170">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1490261010871" stop="1490261022173" status="passed">
+            <name>ITestVsUNITY</name>
+            <title>Сравнение данных записей таблиц ADGAND в ITest и UNITY</title>
+            <description type="text">Сравнение данных записей таблиц ADGAND </description>
+            <steps>
+                <step start="1490261018296" stop="1490261018329" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261019033" stop="1490261019033" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261019732" stop="1490261019732" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261020619" stop="1490261020619" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261021272" stop="1490261021272" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261021976" stop="1490261021976" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261022075" stop="1490261022075" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 1 316, в SA: 1 316 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1490261022456" stop="1490261028160" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц ADGAND в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц ADGAND </description>
+            <steps>
+                <step start="1490261024151" stop="1490261024151" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261024844" stop="1490261024844" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261025523" stop="1490261025524" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261026229" stop="1490261026229" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261026912" stop="1490261026912" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261027591" stop="1490261027591" status="passed">
+                    <name>assertRowsAdgang</name>
+                    <title>Сравнение записи в таблицах ADGANG.</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1490261027693" stop="1490261027693" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 817, в SA: 817 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

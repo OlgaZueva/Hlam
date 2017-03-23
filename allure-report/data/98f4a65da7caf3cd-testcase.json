@@ -1,0 +1,143 @@
+{
+  "uid" : "98f4a65da7caf3cd",
+  "name" : "ITestVsUNITY",
+  "title" : "Сравнение данных записей таблиц ADGAND в ITest и UNITY",
+  "time" : {
+    "start" : 1490260134393,
+    "stop" : 1490260144170,
+    "duration" : 9777
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 7
+  },
+  "failure" : null,
+  "description" : {
+    "value" : "Сравнение данных записей таблиц ADGAND ",
+    "type" : "TEXT"
+  },
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "60010e6d9a09624c",
+    "name" : "Default Suite",
+    "title" : "Default suite"
+  },
+  "steps" : [ {
+    "name" : "assertRowsAdgang",
+    "title" : "Сравнение записей в таблицах ADGANG.",
+    "time" : {
+      "start" : 1490260140306,
+      "stop" : 1490260140322,
+      "duration" : 16
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "assertRowsAdgang",
+    "title" : "Сравнение записей в таблицах ADGANG.",
+    "time" : {
+      "start" : 1490260141078,
+      "stop" : 1490260141078,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "assertRowsAdgang",
+    "title" : "Сравнение записей в таблицах ADGANG.",
+    "time" : {
+      "start" : 1490260141841,
+      "stop" : 1490260141841,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "assertRowsAdgang",
+    "title" : "Сравнение записей в таблицах ADGANG.",
+    "time" : {
+      "start" : 1490260142583,
+      "stop" : 1490260142583,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "assertRowsAdgang",
+    "title" : "Сравнение записей в таблицах ADGANG.",
+    "time" : {
+      "start" : 1490260143337,
+      "stop" : 1490260143337,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "assertRowsAdgang",
+    "title" : "Сравнение записей в таблицах ADGANG.",
+    "time" : {
+      "start" : 1490260144072,
+      "stop" : 1490260144072,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "assertRowCount",
+    "title" : "Сравнение общего числа записей в таблицахю В Source: 1 316, в SA: 1 316 ",
+    "time" : {
+      "start" : 1490260144080,
+      "stop" : 1490260144080,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "Default Suite"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  } ],
+  "parameters" : [ ]
+}
