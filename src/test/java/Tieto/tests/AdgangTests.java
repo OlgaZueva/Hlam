@@ -49,6 +49,7 @@ public class AdgangTests {
 
         while (rsCountRowFromRTest.next()) {
             countRowsInSource = rsCountRowFromRTest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
@@ -63,6 +64,7 @@ public class AdgangTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
+//change sql
                     String sql = (properties.getProperty("adgang.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("VOR_REF") + "'");
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
                     System.out.println("SQL: " + sql);
@@ -78,24 +80,30 @@ public class AdgangTests {
 
                 rsFromRTest.close();
 
-
                 System.out.println("Map1 = " + mapForRTest);
                 System.out.println("Map2 = " + mapForMSCRUS);
-                System.out.println("Equality: " + mapForRTest.equals(mapForMSCRUS));
-                System.out.println("Comparison: " + compareMaps(mapForRTest, mapForMSCRUS));
-
 
 
                 for (Map.Entry entry : mapForRTest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
-                    //q2.equals(mapForMSCRUS.get(q1));
+                    if (q2 == null) {
+                        if (mapForMSCRUS.get(q1) != null || mapForMSCRUS.keySet().contains(q1)) {
+                            // error
+                           // System.err.println("Value in <...> is Null!!!");
+                        }
+                    } else {
+                        if(!q2.equals(mapForMSCRUS.get(q1))){
+                            Object secondValue = mapForMSCRUS.get(q1);
+                            //System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                        }
+                    }
                 }
             }
         }
 
-
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("adgang.MSCRUS.CountRows"));
+        System.out.println("qweq:" + properties.getProperty("adgang.MSCRUS.CountRows"));
+       // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("adgang.MSCRUS.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
@@ -113,7 +121,7 @@ public class AdgangTests {
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
-//change
+
         Connection connectionToITest = db.connToITest();
         Statement statmentForRTest = db.stFromConnection(connectionToITest);
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adgang.SOURCE.CountRow"));
@@ -121,11 +129,12 @@ public class AdgangTests {
 
         while (rsCountRowFromITest.next()) {
             countRowsInSource = rsCountRowFromITest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
                 System.out.println(properties.getProperty("adgang.SOURCE.RowByRownum") + arrayRows.get(i));
-//change
+
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adgang.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
@@ -136,7 +145,7 @@ public class AdgangTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
-//change
+//change sql
                     String sql = (properties.getProperty("adgang.UNITY.RowByPKFromSA") + rsFromITest.getString("VOR_REF") + "'");
                     System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
@@ -153,21 +162,30 @@ public class AdgangTests {
 
                 rsFromITest.close();
 
+
                 System.out.println("Map1 = " + mapForITest);
                 System.out.println("Map2 = " + mapForUNITY);
-                System.out.println("Equality: " + mapForITest.equals(mapForUNITY));
-                System.out.println("Comparison: " + compareMaps(mapForITest, mapForUNITY));
-
 
 
                 for (Map.Entry entry : mapForITest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
-                    //q2.equals(mapForUNITY.get(q1));
+                    if (q2 == null) {
+                        if (mapForUNITY.get(q1) != null || mapForUNITY.keySet().contains(q1)) {
+                            // error
+                           // System.err.println("Value in <...> is Null!!!");
+                        }
+                    } else {
+                        if(!q2.equals(mapForUNITY.get(q1))){
+                            Object secondValue = mapForUNITY.get(q1);
+                           // System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                        }
+                    }
                 }
+
             }
         }
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("adgang.MSCRUS.CountRows"));
+       // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("adgang.UNITY.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
@@ -180,9 +198,6 @@ public class AdgangTests {
     }
 
 
-    private boolean compareMaps(Map<String, Object> map1, Map<String, Object> map2) {
-        return map1.entrySet().containsAll(map2.entrySet()) && map2.entrySet().containsAll(map1.entrySet());
-    }
 
     private int getCountRows(Statement statment, String sql) throws SQLException {
         ResultSet rsCountRowsFromSA = db.rsFromDB(statment, sql);

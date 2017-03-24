@@ -15,7 +15,7 @@ public class ArrayRownums {
         for (int i = 1; i < (countRowsInTable - increment); i = i + increment) {
             arrayRows.add(i);
         }
-        System.out.println("ArraySize: " + arrayRows.size());
+        System.out.println("Кол-во записей для сравнения: " + arrayRows.size());
         return arrayRows;
     }
 }

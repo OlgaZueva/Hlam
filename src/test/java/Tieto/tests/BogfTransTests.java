@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-public class AdresseTests {
+public class BogfTransTests {
     private Asserts asserts = new Asserts();
     private DBHelper db = new DBHelper();
     private ArrayRownums ar = new ArrayRownums();
@@ -36,26 +36,25 @@ public class AdresseTests {
 
 
 
-    @Description("Сравнение данных записей таблиц ADGAND ")
-    @Title("Сравнение данных записей таблиц ADGAND в RTest и MSCRUS")
+    @Description("Сравнение данных записей таблиц BOGF_TRANS ")
+    @Title("Сравнение данных записей таблиц BOGF_TRANS в RTest и MSCRUS")
     @Test
     public void RTestVsMSCRUS() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
 
         Connection connectionToRTest = db.connToRTest();
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
-        String countSelectedRows = properties.getProperty("adresse.SOURCE.CountRow")     + properties.getProperty("system.RownumPool");
-        System.out.println("Ограничение на выбор записей: " + countSelectedRows);
-        ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, countSelectedRows);
+        ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("bogftrans.SOURCE.CountRow"));
 
-//BIG TABLE. Own its algoritm!
+
         while (rsCountRowFromRTest.next()) {
-            countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
+            countRowsInSource = rsCountRowFromRTest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
-                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
+                System.out.println(properties.getProperty("bogftrans.SOURCE.RowByRownum") + arrayRows.get(i));
+                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("bogftrans.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromRTest.next()) {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
                         mapForRTest.put(rsFromRTest.getMetaData().getColumnName(k), rsFromRTest.getObject(k));
@@ -65,13 +64,14 @@ public class AdresseTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
- //change sql
-                    String sql = (properties.getProperty("adresse.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
-                            + " and REF_TYPE = '" + rsFromRTest.getString("REF_TYPE") + "' and REF_NR = " + rsFromRTest.getString("REF_NR")
-                            + " and NR = " + rsFromRTest.getString("NR"));
+//change sql
+                    String sql = (properties.getProperty("bogftrans.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
+                            + " and LOBE_NR = " + rsFromRTest.getString("LOBE_NR") + " and BILAGSNR = "
+                            + rsFromRTest.getString("BILAGSNR") );
 
-                    System.out.println("SQL из MSCRUS: " + sql);
+
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
+                    System.out.println("SQL: " + sql);
 
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForRTest.size(); l++) {
@@ -107,7 +107,7 @@ public class AdresseTests {
         }
 
 
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("adresse.MSCRUS.CountRows"));
+        // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("bogftrans.MSCRUS.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
@@ -120,27 +120,26 @@ public class AdresseTests {
     }
 
 
-    @Description("Сравнение данных записей таблиц ADGAND ")
-    @Title("Сравнение данных записей таблиц ADGAND в ITest и UNITY")
+    @Description("Сравнение данных записей таблиц BOGF_TRANS ")
+    @Title("Сравнение данных записей таблиц BOG_TRANS в ITest и UNITY")
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
 
         Connection connectionToITest = db.connToITest();
         Statement statmentForRTest = db.stFromConnection(connectionToITest);
-        String countSelectedRows = properties.getProperty("adresse.SOURCE.CountRow")     + properties.getProperty("system.RownumPool");
-        System.out.println("Ограничение на выбор записей: " + countSelectedRows);
-        ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, countSelectedRows);
+        ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("bogftrans.SOURCE.CountRow"));
 
-//BIG TABLE. Own its algoritm!
+
         while (rsCountRowFromITest.next()) {
-            countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
+            countRowsInSource = rsCountRowFromITest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println("Номер выбранной строки: " + properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
+                System.out.println(properties.getProperty("bogftrans.SOURCE.RowByRownum") + arrayRows.get(i));
 
-                ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
+                ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("bogftrans.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
                         mapForITest.put(rsFromITest.getMetaData().getColumnName(k), rsFromITest.getObject(k));
@@ -151,12 +150,11 @@ public class AdresseTests {
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
+                    String sql = (properties.getProperty("bogftrans.MSCRUS.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
+                            + " and LOBE_NR = " + rsFromITest.getString("LOBE_NR") + " and BILAGSNR = "
+                            + rsFromITest.getString("BILAGSNR") );
 
-                    String sql = (properties.getProperty("adresse.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
-                            + " and REF_TYPE = '" + rsFromITest.getString("REF_TYPE") + "' and REF_NR = " + rsFromITest.getString("REF_NR")
-                            + " and NR = " + rsFromITest.getString("NR"));
-
-                    System.out.println("SQL из UNITY: " + sql);
+                    System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
 
@@ -170,6 +168,7 @@ public class AdresseTests {
                 }
 
                 rsFromITest.close();
+
 
                 System.out.println("Map1 = " + mapForITest);
                 System.out.println("Map2 = " + mapForUNITY);
@@ -190,9 +189,10 @@ public class AdresseTests {
                         }
                     }
                 }
+
             }
         }
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("adresse.MSCRUS.CountRows"));
+        // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("bogftrans.UNITY.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
@@ -205,9 +205,6 @@ public class AdresseTests {
     }
 
 
-    private boolean compareMaps(Map<String, Object> map1, Map<String, Object> map2) {
-        return map1.entrySet().containsAll(map2.entrySet()) && map2.entrySet().containsAll(map1.entrySet());
-    }
 
     private int getCountRows(Statement statment, String sql) throws SQLException {
         ResultSet rsCountRowsFromSA = db.rsFromDB(statment, sql);

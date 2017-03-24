@@ -54,13 +54,9 @@ public class qwe {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("adgang.SOURCE.RowByRownum") + arrayRows.get(i));
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("adgang.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromRTest.next()) {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
-                        //columNames = rsFromRTest.getMetaData().getColumnName(k);
-                        //arrayColumsNames = new ArrayList();
-                        //arrayColumsNames.add(rsFromRTest.getMetaData().getColumnName(k));
                         mapForRTest.put(rsFromRTest.getMetaData().getColumnName(k), rsFromRTest.getObject(k));
                     }
 
@@ -94,7 +90,8 @@ public class qwe {
                     Object q2 = entry.getValue();
                     if (q2 == null) {
                         if (mapForMSIRUS.get(q1) != null || mapForMSIRUS.keySet().contains(q1)) {
-                            //error
+                            // error
+                            System.err.println("Value in <...> is Null!!!");
                         }
                     } else {
                         if(!q2.equals(mapForMSIRUS.get(q1))){

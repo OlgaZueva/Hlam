@@ -49,6 +49,7 @@ public class AdgangLinTests {
 
         while (rsCountRowFromRTest.next()) {
             countRowsInSource = rsCountRowFromRTest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
@@ -63,7 +64,7 @@ public class AdgangLinTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
-
+//change sql
                     String sql = (properties.getProperty("adganglin.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("VOR_REF")
                             + "' and SELSKAB = " + rsFromRTest.getString("SELSKAB"));
 
@@ -85,15 +86,22 @@ public class AdgangLinTests {
 
                 System.out.println("Map1 = " + mapForRTest);
                 System.out.println("Map2 = " + mapForMSCRUS);
-                System.out.println("Equality: " + mapForRTest.equals(mapForMSCRUS));
-                System.out.println("Comparison: " + compareMaps(mapForRTest, mapForMSCRUS));
-
 
 
                 for (Map.Entry entry : mapForRTest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
-                    //q2.equals(mapForMSCRUS.get(q1));
+                    if (q2 == null) {
+                        if (mapForMSCRUS.get(q1) != null || mapForMSCRUS.keySet().contains(q1)) {
+                            // error
+                            // System.err.println("Value in <...> is Null!!!");
+                        }
+                    } else {
+                        if(!q2.equals(mapForMSCRUS.get(q1))){
+                            Object secondValue = mapForMSCRUS.get(q1);
+                            //System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                        }
+                    }
                 }
             }
         }
@@ -117,7 +125,7 @@ public class AdgangLinTests {
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
-//change
+
         Connection connectionToITest = db.connToITest();
         Statement statmentForRTest = db.stFromConnection(connectionToITest);
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adganglin.SOURCE.CountRow"));
@@ -125,11 +133,12 @@ public class AdgangLinTests {
 
         while (rsCountRowFromITest.next()) {
             countRowsInSource = rsCountRowFromITest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
                 System.out.println(properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
-//change
+
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
@@ -140,7 +149,7 @@ public class AdgangLinTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
-//change
+//change sql
                     String sql = (properties.getProperty("adganglin.UNITY.RowByPKFromSA") + rsFromITest.getString("VOR_REF")
                             + "' and SELSKAB = " +  rsFromITest.getString("SELSKAB"));
 
@@ -162,15 +171,22 @@ public class AdgangLinTests {
 
                 System.out.println("Map1 = " + mapForITest);
                 System.out.println("Map2 = " + mapForUNITY);
-                System.out.println("Equality: " + mapForITest.equals(mapForUNITY));
-                System.out.println("Comparison: " + compareMaps(mapForITest, mapForUNITY));
-
 
 
                 for (Map.Entry entry : mapForITest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
-                    //q2.equals(mapForUNITY.get(q1));
+                    if (q2 == null) {
+                        if (mapForUNITY.get(q1) != null || mapForUNITY.keySet().contains(q1)) {
+                            // error
+                            // System.err.println("Value in <...> is Null!!!");
+                        }
+                    } else {
+                        if(!q2.equals(mapForUNITY.get(q1))){
+                            Object secondValue = mapForUNITY.get(q1);
+                            // System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                        }
+                    }
                 }
             }
         }

@@ -49,10 +49,11 @@ public class AbPostTests {
 
         while (rsCountRowFromRTest.next()) {
             countRowsInSource = rsCountRowFromRTest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("abpost.SOURCE.RowByRownum") + arrayRows.get(i));
+
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("abpost.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromRTest.next()) {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
@@ -63,7 +64,7 @@ public class AbPostTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
-
+//change sql
                     String sql = (properties.getProperty("abpost.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
                             + " and LOBE_NR = " + rsFromRTest.getString("LOBE_NR") + " and KUNDE = " + rsFromRTest.getString("KUNDE")
                             + " and K_TYPE = '" + rsFromRTest.getString("K_TYPE") + "' and FAKTURANR = '" + rsFromRTest.getString("FAKTURANR")
@@ -84,25 +85,33 @@ public class AbPostTests {
 
                 rsFromRTest.close();
 
-
                 System.out.println("Map1 = " + mapForRTest);
                 System.out.println("Map2 = " + mapForMSCRUS);
-                System.out.println("Equality: " + mapForRTest.equals(mapForMSCRUS));
-                System.out.println("Comparison: " + compareMaps(mapForRTest, mapForMSCRUS));
-
 
 
                 for (Map.Entry entry : mapForRTest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
-                    //q2.equals(mapForMSCRUS.get(q1));
+                    if (q2 == null) {
+                        if (mapForMSCRUS.get(q1) != null || mapForMSCRUS.keySet().contains(q1)) {
+                            // error
+                            // System.err.println("Value in <...> is Null!!!");
+                        }
+                    } else {
+                        if(!q2.equals(mapForMSCRUS.get(q1))){
+                            Object secondValue = mapForMSCRUS.get(q1);
+                            //System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                        }
+                    }
                 }
+
+
             }
         }
 
-
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("abpost.MSCRUS.CountRows"));
-        //asserts.assertRowCount(countRowsInSource, countRowsInSA);
+        System.out.println("Count: " + properties.getProperty("abpost.MSCRUS.CountRows"));
+        countRowsInSA = getCountRows(statmentForSA, properties.getProperty("abpost.MSCRUS.CountRows"));
+        asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
         statmentForSA.close();
@@ -119,7 +128,7 @@ public class AbPostTests {
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
-//change
+
         Connection connectionToITest = db.connToITest();
         Statement statmentForRTest = db.stFromConnection(connectionToITest);
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("abpost.SOURCE.CountRow"));
@@ -127,11 +136,12 @@ public class AbPostTests {
 
         while (rsCountRowFromITest.next()) {
             countRowsInSource = rsCountRowFromITest.getInt("c");
+            System.out.println("Кол-во записей в таблице: " + countRowsInSource);
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
                 System.out.println(properties.getProperty("abpost.SOURCE.RowByRownum") + arrayRows.get(i));
-//change
+
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("abpost.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
@@ -142,7 +152,7 @@ public class AbPostTests {
 
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
-//change
+//change sql
                     String sql = (properties.getProperty("abpost.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
                             + " and LOBE_NR = " + rsFromITest.getString("LOBE_NR") + " and KUNDE = " + rsFromITest.getString("KUNDE")
                             + " and K_TYPE = '" + rsFromITest.getString("K_TYPE") + "' and FAKTURANR = '" + rsFromITest.getString("FAKTURANR")
@@ -167,25 +177,26 @@ public class AbPostTests {
                 System.out.println("Map2 = " + mapForUNITY);
 
 
-
-
-                for (Map.Entry entry : mapForRTest.entrySet()) {
+                for (Map.Entry entry : mapForITest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
                         if (mapForUNITY.get(q1) != null || mapForUNITY.keySet().contains(q1)) {
-                            //error
+                            // error
+                            // System.err.println("Value in <...> is Null!!!");
                         }
                     } else {
                         if(!q2.equals(mapForUNITY.get(q1))){
                             Object secondValue = mapForUNITY.get(q1);
-                            System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                            // System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
                         }
                     }
                 }
+
             }
         }
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("abpost.MSCRUS.CountRows"));
+
+       // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("abpost.UNITY.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
@@ -197,10 +208,6 @@ public class AbPostTests {
         connectionToITest.close();
     }
 
-
-    private boolean compareMaps(Map<String, Object> map1, Map<String, Object> map2) {
-        return map1.entrySet().containsAll(map2.entrySet()) && map2.entrySet().containsAll(map1.entrySet());
-    }
 
     private int getCountRows(Statement statment, String sql) throws SQLException {
         ResultSet rsCountRowsFromSA = db.rsFromDB(statment, sql);
