@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1490301837290" stop="1490301866168">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1490301837330" stop="1490301866003" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц ADGAND в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц ADGAND </description>
+            <steps>
+                <step start="1490301865949" stop="1490301865956" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 817, в SA: 817 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

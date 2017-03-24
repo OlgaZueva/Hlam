@@ -7,12 +7,15 @@ import java.util.ArrayList;
  */
 public class ArrayRownums {
 
-    public ArrayList getRownumsArray(int countRowsInTable, int percent){
-        int countRowsForMatch = (countRowsInTable*percent)/100;
-        int increment = countRowsInTable/countRowsForMatch;
-        ArrayList arrayRows = new ArrayList();
-        //ArrayList<Integer> arrayRownums = new ArrayList<Integer>();
-        return arrayRows;
+    public ArrayList getArray(int countRowsInTable, int percent) {
 
+        int countRowsForMatch = (countRowsInTable * percent) / 100;
+        int increment = countRowsInTable / countRowsForMatch;
+        ArrayList arrayRows = new ArrayList();
+        for (int i = 1; i < (countRowsInTable - increment); i = i + increment) {
+            arrayRows.add(i);
+        }
+        System.out.println("ArraySize: " + arrayRows.size());
+        return arrayRows;
     }
 }

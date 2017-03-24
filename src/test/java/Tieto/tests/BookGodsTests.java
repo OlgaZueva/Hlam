@@ -15,8 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Properties;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,8 +25,7 @@ public class BookGodsTests {
     private DBHelper db = new DBHelper();
     private ArrayRownums ar = new ArrayRownums();
     private Properties properties = new Properties();
-    private Adgang adgangRTest = null;
-    private Adgang adgangSaMSCRUS = null;
+
     private Adgang adgangITest = null;
     private Adgang adgangSaUNITY = null;
     private int countRowsInSource;
@@ -36,6 +34,8 @@ public class BookGodsTests {
     private Connection connectionToSA;
     private ResultSet rsFromSA;
 
+    private Map<String, Object> mapForRTest = new HashMap<String, Object>();
+    private Map<String, Object> mapForMSIRUS = new HashMap<String, Object>();
 
     private ArrayList<Object> arrayFromRTest = new ArrayList();
     private ArrayList<Object> arrayFromSA = new ArrayList();
@@ -53,43 +53,31 @@ public class BookGodsTests {
 
         while (rsCountRowFromRTest.next()) {
             countRowsInSource = rsCountRowFromRTest.getInt("c");
-            //ArrayList arrayRows = ar.getArrayRownums(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
+            System.out.println("All count:" + countRowsInSource);
+            ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
-            int[] array = new int[]{(countRowsInSource - (countRowsInSource - 1)),
-                    (countRowsInSource - (countRowsInSource - 2)), (countRowsInSource / 2 - 1), (countRowsInSource / 2),
-                    (countRowsInSource - 1), countRowsInSource};
-            //for (int i = 0; i <arrayRows.size(); i++) {
-            for (int i = 0; i < array.length; i++) {
-                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("adgang.SOURCE.RowByRownum") + array[i]);
+            System.out.println(arrayRows.size());
+
+            for (int i = 0; i < arrayRows.size(); i++) {
+                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("adgang.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromRTest.next()) {
                     System.out.println(rsFromRTest.getMetaData().getColumnCount());
-                    System.out.println("ArraySizeBefore: " + arrayFromRTest.size());
-                    for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
-                        String columNames = rsFromRTest.getMetaData().getColumnName(k);
-                        System.out.println("Column: " + columNames);
-                        System.out.println("DataColumn:" + rsFromRTest.getObject(k));
-                        arrayFromRTest.add(rsFromRTest.getObject(k));
-                        System.out.println("ArraySizeAfter: " + arrayFromRTest.size());
 
+                    for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
+                        mapForRTest.put(rsFromRTest.getMetaData().getColumnName(k), rsFromRTest.getObject(k));
+                        arrayFromRTest.add(rsFromRTest.getObject(k));
                     }
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
                     rsFromSA = db.rsFromDB(statmentForSA, properties.getProperty("adgang.MSCRUS.RowByPKFromRTest") +
-                            rsFromRTest.getObject(1) + "'");
+                            rsFromRTest.getObject("VOR_REF") + "'");
                     System.out.println("SQL: " + properties.getProperty("adgang.MSCRUS.RowByPKFromRTest") + rsFromRTest.getString("VOR_REF") + "'");
-                    System.out.println(rsFromRTest.getObject(1));
-                    //System.out.println(rsFromRTest.getString("VOR_REF"));
-                    //rsFromRTest.getString("VOR_REF") + "'");
+
                     while (rsFromSA.next()) {
-                        System.out.println(rsFromSA.getRow());
-                        System.out.println(rsFromSA.getMetaData().getColumnCount());
-                        System.out.println(rsFromSA.getObject(1));
                         //System.out.println("ArraySizeBefore: " + arrayFromSA.size());
                         for (int l = 1; l <= rsFromRTest.getMetaData().getColumnCount(); l++) {
+                            mapForMSIRUS.put(rsFromSA.getMetaData().getColumnName(l), rsFromSA.getObject(l));
                             arrayFromSA.add(rsFromSA.getObject(l));
-                            System.out.println("ArraySizeAfter: " + arrayFromSA.size());
-                            System.out.println("ColumnName: " + rsFromSA.getMetaData().getColumnName(l));
-                            System.out.println("DataFromColumn:" + rsFromSA.getObject(l));
 
                         }
                     }
@@ -99,7 +87,42 @@ public class BookGodsTests {
                 }
                 rsFromRTest.close();
 
-                assertThat(arrayFromRTest, equalTo(arrayFromSA));
+                System.out.println("Map1 = " + mapForRTest);
+                System.out.println("Map2 = " + mapForMSIRUS);
+                System.out.println("Equality: " + mapForMSIRUS.equals(mapForRTest));
+                System.out.println("Comparison: " + mapForRTest.entrySet().containsAll(mapForMSIRUS.entrySet()));
+                System.out.println("Comparison1: " + mapForMSIRUS.entrySet().containsAll(mapForRTest.entrySet()));
+
+
+//                assertThat(mapForRTest.containsValue("KLDATI"), equalTo(mapForMSIRUS.containsValue("KLDATI")));
+
+
+                for (Map.Entry entry : mapForRTest.entrySet()) {
+                    Object q1 = entry.getKey();
+                    Object q2 = entry.getValue();
+
+                    System.out.println("q1: " + q1 + " | q1 from MSCRUS: " + mapForMSIRUS.get(q1));
+                    // System.out.println("q1: " + q1 + " | q2 from MSCRUS: " + mapForMSIRUS.get(q2));
+                    //System.out.println("q1: " + q1 + " | q2 from RTest: " + q2);
+
+                    q1.equals(mapForMSIRUS.get(q1));
+//                    q2.equals(mapForMSIRUS.get(q1));
+
+                    //q1.equals(mapForMSIRUS.get(q2));
+                    //assertThat(q2, equalTo(mapForMSIRUS.get(q1)));
+/*
+                    (e1.getKey() == null ?
+                            e2.getKey() == null : e1.getKey().equals(e2.getKey())) &&
+                            (e1.getValue() == null ?
+                                    e2.getValue() == null : e1.getValue().equals(e2.getValue()))
+
+*/
+                }
+
+                //System.out.println(mapForMSIRUS.entrySet().containsAll(mapForRTest.entrySet()));
+
+//                assertThat(mapForRTest, equalTo(mapForMSIRUS));
+                //assertThat(arrayFromRTest, equalTo(arrayFromSA));
             }
         }
 
