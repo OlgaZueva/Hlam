@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1490484413281" stop="1490484564858">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1490484413295" stop="1490484523694" status="passed">
+            <name>ITestVsUNITY</name>
+            <title>Сравнение данных записей таблиц ORDRELIN в ITest и UNITY</title>
+            <description type="text">Сравнение данных записей таблиц ORDRELIN </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1490484523835" stop="1490484564851" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц ORDRELIN в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц ORDRELIN </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

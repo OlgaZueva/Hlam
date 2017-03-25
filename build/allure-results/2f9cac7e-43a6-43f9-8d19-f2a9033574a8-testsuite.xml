@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1490482650668" stop="1490482687471">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1490482650685" stop="1490482686859" status="passed">
+            <name>ITestVsUNITY</name>
+            <title>Сравнение данных записей таблиц EXPVESSEL в ITest и UNITY</title>
+            <description type="text">Сравнение данных записей таблиц EXPVESSEL </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1490482686964" stop="1490482687464" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц EXPVESSEL в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц EXPVESSEL </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

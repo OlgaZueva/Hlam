@@ -88,14 +88,16 @@ public class AdgangTests {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForMSCRUS.get(q1) != null || mapForMSCRUS.keySet().contains(q1)) {
+                        if (mapForMSCRUS.get(q1) != null || !mapForMSCRUS.keySet().contains(q1)) {
                             // error
-                           // System.err.println("Value in <...> is Null!!!");
+                            System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
                         if(!q2.equals(mapForMSCRUS.get(q1))){
                             Object secondValue = mapForMSCRUS.get(q1);
-                            //System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
+                                System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForMSCRUS.get(q1) + "]");
+                            }
                         }
                     }
                 }
@@ -171,14 +173,16 @@ public class AdgangTests {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForUNITY.get(q1) != null || mapForUNITY.keySet().contains(q1)) {
+                        if (mapForUNITY.get(q1) != null || !mapForITest.keySet().contains(q1)) {
                             // error
-                           // System.err.println("Value in <...> is Null!!!");
+                            System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
                         if(!q2.equals(mapForUNITY.get(q1))){
                             Object secondValue = mapForUNITY.get(q1);
-                           // System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
+                                System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForUNITY.get(q1) + "]");
+                            }
                         }
                     }
                 }

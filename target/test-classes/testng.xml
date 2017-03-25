@@ -3,8 +3,23 @@
 <suite name="RTestSuit" verbose="1" >
     <test name="RTestVsMSCRUS" >
         <classes>
-            <class name="Tieto.tests.AdgangTests" />
-            <class name="Tieto.tests.AdgangLinTests" />
+            <class name="Tieto.tests.AbPostTests" />
+            <class name="Tieto.tests.AdresseTests" />
+            <class name="Tieto.tests.BogfTransTests" />
+            <class name="Tieto.tests.BookDetailsTests" />
+            <class name="Tieto.tests.BookEventTests" />
+            <class name="Tieto.tests.BookGodsTests" />
+            <class name="Tieto.tests.BookKorTests" />
+            <class name="Tieto.tests.BookLinTests" />
+            <class name="Tieto.tests.BookManifestsTests" />
+            <class name="Tieto.tests.BookTests" />
+            <class name="Tieto.tests.ContRepTests" />
+            <class name="Tieto.tests.ExpVesselTests" />
+            <class name="Tieto.tests.FaktPostTests" />
+            <class name="Tieto.tests.KundeTests" />
+            <class name="Tieto.tests.OrdreTests" />
+            <class name="Tieto.tests.OrdreLinTests" />
+            <class name="Tieto.tests.SagTests" />
         </classes>
     </test>
 

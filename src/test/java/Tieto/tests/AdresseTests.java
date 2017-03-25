@@ -36,26 +36,28 @@ public class AdresseTests {
 
 
 
-    @Description("Сравнение данных записей таблиц ADGAND ")
-    @Title("Сравнение данных записей таблиц ADGAND в RTest и MSCRUS")
+    @Description("Сравнение данных записей таблиц ADRESSE ")
+    @Title("Сравнение данных записей таблиц ADRESSE в RTest и MSCRUS")
     @Test
     public void RTestVsMSCRUS() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
-
+//BIG TABLE. Own its algoritm!
         Connection connectionToRTest = db.connToRTest();
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
-        String countSelectedRows = properties.getProperty("adresse.SOURCE.CountRow")     + properties.getProperty("system.RownumPool");
+        String countSelectedRows = properties.getProperty("adresse.SOURCE.CountRow") + properties.getProperty("system.RownumPool");
         System.out.println("Ограничение на выбор записей: " + countSelectedRows);
         ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, countSelectedRows);
 
-//BIG TABLE. Own its algoritm!
         while (rsCountRowFromRTest.next()) {
+//BIG TABLE. Own its algoritm!
             countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
-                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
+                String sqlRowByRownum = (properties.getProperty("adresse.SOURCE.RowByRownumPart1") + countRowsInSource
+                        + properties.getProperty("adresse.SOURCE.RowByRownumPart2") + arrayRows.get(i));
+                //System.out.println(sqlRowByRownum);
+                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
                 while (rsFromRTest.next()) {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
                         mapForRTest.put(rsFromRTest.getMetaData().getColumnName(k), rsFromRTest.getObject(k));
@@ -70,7 +72,7 @@ public class AdresseTests {
                             + " and REF_TYPE = '" + rsFromRTest.getString("REF_TYPE") + "' and REF_NR = " + rsFromRTest.getString("REF_NR")
                             + " and NR = " + rsFromRTest.getString("NR"));
 
-                    System.out.println("SQL из MSCRUS: " + sql);
+                    //System.out.println("SQL из MSCRUS: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
                     while (rsFromSA.next()) {
@@ -84,22 +86,24 @@ public class AdresseTests {
 
                 rsFromRTest.close();
 
-                System.out.println("Map1 = " + mapForRTest);
-                System.out.println("Map2 = " + mapForMSCRUS);
+                //System.out.println("Map1 = " + mapForRTest);
+                //System.out.println("Map2 = " + mapForMSCRUS);
 
 
                 for (Map.Entry entry : mapForRTest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForMSCRUS.get(q1) != null || mapForMSCRUS.keySet().contains(q1)) {
+                        if (mapForMSCRUS.get(q1) != null || !mapForMSCRUS.keySet().contains(q1)) {
                             // error
-                            // System.err.println("Value in <...> is Null!!!");
+                            System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
                         if(!q2.equals(mapForMSCRUS.get(q1))){
                             Object secondValue = mapForMSCRUS.get(q1);
-                            //System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
+                                System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForMSCRUS.get(q1) + "]");
+                            }
                         }
                     }
                 }
@@ -120,27 +124,29 @@ public class AdresseTests {
     }
 
 
-    @Description("Сравнение данных записей таблиц ADGAND ")
-    @Title("Сравнение данных записей таблиц ADGAND в ITest и UNITY")
+    @Description("Сравнение данных записей таблиц ADRESSE ")
+    @Title("Сравнение данных записей таблиц ADRESSE в ITest и UNITY")
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
 
         Connection connectionToITest = db.connToITest();
         Statement statmentForRTest = db.stFromConnection(connectionToITest);
+//BIG TABLE. Own its algoritm!
         String countSelectedRows = properties.getProperty("adresse.SOURCE.CountRow")     + properties.getProperty("system.RownumPool");
         System.out.println("Ограничение на выбор записей: " + countSelectedRows);
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, countSelectedRows);
 
-//BIG TABLE. Own its algoritm!
         while (rsCountRowFromITest.next()) {
+//BIG TABLE. Own its algoritm!
             countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println("Номер выбранной строки: " + properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
-
-                ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adresse.SOURCE.RowByRownum") + arrayRows.get(i));
+                String sqlRowByRownum = (properties.getProperty("adresse.SOURCE.RowByRownumPart1") + countRowsInSource
+                        + properties.getProperty("adresse.SOURCE.RowByRownumPart2") + arrayRows.get(i));
+                System.out.println(sqlRowByRownum);
+                ResultSet rsFromITest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
                         mapForITest.put(rsFromITest.getMetaData().getColumnName(k), rsFromITest.getObject(k));
@@ -174,19 +180,20 @@ public class AdresseTests {
                 System.out.println("Map1 = " + mapForITest);
                 System.out.println("Map2 = " + mapForUNITY);
 
-
                 for (Map.Entry entry : mapForITest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForUNITY.get(q1) != null || mapForUNITY.keySet().contains(q1)) {
+                        if (mapForUNITY.get(q1) != null || !mapForITest.keySet().contains(q1)) {
                             // error
-                            // System.err.println("Value in <...> is Null!!!");
+                            System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
                         if(!q2.equals(mapForUNITY.get(q1))){
                             Object secondValue = mapForUNITY.get(q1);
-                            // System.out.println(q2.toString().equals(secondValue!=null?secondValue.toString():null));
+                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
+                                System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForUNITY.get(q1) + "]");
+                            }
                         }
                     }
                 }
