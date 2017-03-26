@@ -57,7 +57,7 @@ public class BookGodsTests {
             for (int i = 0; i < arrayRows.size(); i++) {
                 String sqlRowByRownum = (properties.getProperty("bookgods.SOURCE.RowByRownumPart1") + countRowsInSource
                         + properties.getProperty("bookgods.SOURCE.RowByRownumPart2") + arrayRows.get(i));
-               // System.out.println(sqlRowByRownum);
+                System.out.println(sqlRowByRownum);
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
 
                 // ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("bookgods.SOURCE.RowByRownum") + "13");
@@ -74,7 +74,7 @@ public class BookGodsTests {
                     String sql = (properties.getProperty("bookgods.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
                             + " and BOOK_NR = " + rsFromRTest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromRTest.getString("VAREPOST_NR"));
 
-                   // System.out.println("SQL из MSCRUS: " + sql);
+                    System.out.println("SQL из MSCRUS: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
                     while (rsFromSA.next()) {
@@ -92,23 +92,28 @@ public class BookGodsTests {
                // System.out.println("Map2 = " + mapForMSCRUS);
 
 
+
                 for (Map.Entry entry : mapForRTest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForMSCRUS.get(q1) != null || !mapForMSCRUS.keySet().contains(q1)) {
+                        if (mapForMSCRUS.get(q1) != null) {
                             // error
-                            System.err.println("Column [" + q1 + "] not exist");
+                            System.err.println("Column [" + q1  + "] expected null but was [" + mapForMSCRUS.get(q1).toString() + "]");
+                        } else if (!mapForMSCRUS.keySet().contains(q1)) {
+                            System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
-                        if (!q2.equals(mapForMSCRUS.get(q1))) {
+                        if(!q2.equals(mapForMSCRUS.get(q1))){
                             Object secondValue = mapForMSCRUS.get(q1);
-                            if (!q2.toString().equals(secondValue != null ? secondValue.toString() : null)) {
+                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
                                 System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForMSCRUS.get(q1) + "]");
                             }
                         }
                     }
                 }
+
+
             }
         }
 
@@ -148,7 +153,7 @@ public class BookGodsTests {
                 //ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("bookgods.SOURCE.RowByRownum") + "13");
                 String sqlRowByRownum = (properties.getProperty("bookgods.SOURCE.RowByRownumPart1") + countRowsInSource
                         + properties.getProperty("bookgods.SOURCE.RowByRownumPart2") + arrayRows.get(i));
-               // System.out.println(sqlRowByRownum);
+                System.out.println(sqlRowByRownum);
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
@@ -163,7 +168,7 @@ public class BookGodsTests {
                     String sql = (properties.getProperty("bookgods.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
                             + " and BOOK_NR = " + rsFromITest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromITest.getString("VAREPOST_NR"));
 
-                    //System.out.println("SQL из UNITY: " + sql);
+                    System.out.println("SQL из UNITY: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForITest.size(); l++) {

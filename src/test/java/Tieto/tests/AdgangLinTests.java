@@ -53,7 +53,7 @@ public class AdgangLinTests {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
+               // System.out.println(properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromRTest.next()) {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
@@ -70,7 +70,7 @@ public class AdgangLinTests {
 
 
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
-                    System.out.println("SQL: " + sql);
+                   // System.out.println("SQL: " + sql);
 
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForRTest.size(); l++) {
@@ -84,8 +84,8 @@ public class AdgangLinTests {
                 rsFromRTest.close();
 
 
-                System.out.println("Map1 = " + mapForRTest);
-                System.out.println("Map2 = " + mapForMSCRUS);
+               // System.out.println("Map1 = " + mapForRTest);
+                //System.out.println("Map2 = " + mapForMSCRUS);
 
 
                 for (Map.Entry entry : mapForRTest.entrySet()) {
@@ -139,7 +139,7 @@ public class AdgangLinTests {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
+                //System.out.println(properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
 
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("adganglin.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromITest.next()) {
@@ -156,7 +156,7 @@ public class AdgangLinTests {
                             + "' and SELSKAB = " +  rsFromITest.getString("SELSKAB"));
 
 
-                    System.out.println("SQL: " + sql);
+                    //System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
 
@@ -171,8 +171,8 @@ public class AdgangLinTests {
 
                 rsFromITest.close();
 
-                System.out.println("Map1 = " + mapForITest);
-                System.out.println("Map2 = " + mapForUNITY);
+                //System.out.println("Map1 = " + mapForITest);
+                //System.out.println("Map2 = " + mapForUNITY);
 
 
                 for (Map.Entry entry : mapForITest.entrySet()) {

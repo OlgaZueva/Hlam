@@ -8,6 +8,8 @@
             <class name="Tieto.tests.BookDryPortTests" />
             <class name="Tieto.tests.ControlOfficeTests" />
             <class name="Tieto.tests.ContTypeTests" />
+            <class name="Tieto.tests.SelskabTests" />
+            <class name="Tieto.tests.UtsConstantsTests" />
         </classes>
     </test>
 

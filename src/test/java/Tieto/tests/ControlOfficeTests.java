@@ -53,7 +53,7 @@ public class ControlOfficeTests {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("controloffice.SOURCE.RowByRownum") + arrayRows.get(i));
+                //System.out.println("Sql from RTest: " + properties.getProperty("controloffice.SOURCE.RowByRownum") + arrayRows.get(i));
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, properties.getProperty("controloffice.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromRTest.next()) {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
@@ -68,7 +68,7 @@ public class ControlOfficeTests {
                     String sql = (properties.getProperty("controloffice.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("OFFICE_ID")
                             + " and COMPANY_ID = " + rsFromRTest.getString("COMPANY_ID")  );
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
-                    System.out.println("SQL: " + sql);
+                    System.out.println("SQL from SA: " + sql);
 
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForRTest.size(); l++) {
@@ -81,8 +81,8 @@ public class ControlOfficeTests {
 
                 rsFromRTest.close();
 
-                System.out.println("Map1 = " + mapForRTest);
-                System.out.println("Map2 = " + mapForMSCRUS);
+                //System.out.println("Map1 = " + mapForRTest);
+               // System.out.println("Map2 = " + mapForMSCRUS);
 
 
                 for (Map.Entry entry : mapForRTest.entrySet()) {
@@ -105,7 +105,7 @@ public class ControlOfficeTests {
             }
         }
 
-        System.out.println("qweq:" + properties.getProperty("controloffice.MSCRUS.CountRows"));
+
         // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("controloffice.MSCRUS.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
@@ -136,7 +136,8 @@ public class ControlOfficeTests {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                System.out.println(properties.getProperty("controloffice.SOURCE.RowByRownum") + arrayRows.get(i));
+
+               // System.out.println("Sql from ITest: " + properties.getProperty("controloffice.SOURCE.RowByRownum") + arrayRows.get(i));
 
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, properties.getProperty("controloffice.SOURCE.RowByRownum") + arrayRows.get(i));
                 while (rsFromITest.next()) {
@@ -151,7 +152,7 @@ public class ControlOfficeTests {
 //change sql
                     String sql = (properties.getProperty("controloffice.UNITY.RowByPKFromSA") + rsFromITest.getString("OFFICE_ID")
                             + " and COMPANY_ID = " + rsFromITest.getString("COMPANY_ID")  );
-                    System.out.println("SQL: " + sql);
+                    System.out.println("SQL from SA: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
 
@@ -167,8 +168,8 @@ public class ControlOfficeTests {
                 rsFromITest.close();
 
 
-                System.out.println("Map1 = " + mapForITest);
-                System.out.println("Map2 = " + mapForUNITY);
+                //System.out.println("Map1 = " + mapForITest);
+                //System.out.println("Map2 = " + mapForUNITY);
 
 
                 for (Map.Entry entry : mapForITest.entrySet()) {

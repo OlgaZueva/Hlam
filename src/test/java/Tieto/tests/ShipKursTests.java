@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-public class AbPostTests {
+public class ShipKursTests {
     private Asserts asserts = new Asserts();
     private DBHelper db = new DBHelper();
     private ArrayRownums ar = new ArrayRownums();
@@ -36,8 +36,8 @@ public class AbPostTests {
 
 
 
-    @Description("Сравнение данных записей таблиц ABPOST ")
-    @Title("Сравнение данных записей таблиц ABPOST в RTest и MSCRUS")
+    @Description("Сравнение данных записей таблиц SHIPKURS ")
+    @Title("Сравнение данных записей таблиц SHIPKURS в RTest и MSCRUS")
     @Test
     public void RTestVsMSCRUS() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
@@ -45,7 +45,7 @@ public class AbPostTests {
         Connection connectionToRTest = db.connToRTest();
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
 //BIG TABLE. Own its algoritm!
-        String countSelectedRows = properties.getProperty("abpost.SOURCE.CountRow") + properties.getProperty("system.RownumPool");
+        String countSelectedRows = properties.getProperty("shipkurs.SOURCE.CountRow") + properties.getProperty("system.RownumPool");
         System.out.println("Ограничение на выбор записей: " + countSelectedRows);
         ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, countSelectedRows);
 
@@ -55,8 +55,8 @@ public class AbPostTests {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                String sqlRowByRownum = (properties.getProperty("abpost.SOURCE.RowByRownumPart1") + countRowsInSource
-                        + properties.getProperty("abpost.SOURCE.RowByRownumPart2") + arrayRows.get(i));
+                String sqlRowByRownum = (properties.getProperty("shipkurs.SOURCE.RowByRownumPart1") + countRowsInSource
+                        + properties.getProperty("shipkurs.SOURCE.RowByRownumPart2") + arrayRows.get(i));
                 //System.out.println(sqlRowByRownum);
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
 
@@ -70,14 +70,12 @@ public class AbPostTests {
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
-                    String sql = (properties.getProperty("abpost.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
-                            + " and LOBE_NR = " + rsFromRTest.getString("LOBE_NR") + " and KUNDE = " + rsFromRTest.getString("KUNDE")
-                            + " and K_TYPE = '" + rsFromRTest.getString("K_TYPE") + "' and FAKTURANR = '" + rsFromRTest.getString("FAKTURANR")
-                            + "' and F_TYPE = '" + rsFromRTest.getString("F_TYPE")+"'");
+                    String sql = (properties.getProperty("shipkurs.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
+                            + " and LOBE_NR = " + rsFromRTest.getString("LOBE_NR") + " and DATO = '" + rsFromRTest.getString("DATO")+"'");
 
 
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
-                   // System.out.println("SQL: " + sql);
+                    // System.out.println("SQL: " + sql);
 
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForRTest.size(); l++) {
@@ -95,10 +93,8 @@ public class AbPostTests {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForMSCRUS.get(q1) != null) {
+                        if (mapForMSCRUS.get(q1) != null || !mapForMSCRUS.keySet().contains(q1)) {
                             // error
-                            System.err.println("Column [" + q1  + "] expected null but was [" + mapForMSCRUS.get(q1).toString() + "]");
-                        } else if (!mapForMSCRUS.keySet().contains(q1)) {
                             System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
@@ -116,7 +112,7 @@ public class AbPostTests {
         }
 
 
-        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("abpost.MSCRUS.CountRows"));
+        //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("shipkurs.MSCRUS.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
@@ -129,8 +125,8 @@ public class AbPostTests {
     }
 
 
-    @Description("Сравнение данных записей таблиц ABPOST ")
-    @Title("Сравнение данных записей таблиц ABPOST в ITest и UNITY")
+    @Description("Сравнение данных записей таблиц SHIPKURS ")
+    @Title("Сравнение данных записей таблиц SHIPKURS в ITest и UNITY")
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
@@ -138,7 +134,7 @@ public class AbPostTests {
         Connection connectionToITest = db.connToITest();
         Statement statmentForRTest = db.stFromConnection(connectionToITest);
 //BIG TABLE. Own its algoritm!
-        String countSelectedRows = properties.getProperty("abpost.SOURCE.CountRow") + properties.getProperty("system.RownumPool");
+        String countSelectedRows = properties.getProperty("shipkurs.SOURCE.CountRow") + properties.getProperty("system.RownumPool");
         System.out.println("Ограничение на выбор записей: " + countSelectedRows);
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForRTest, countSelectedRows);
 
@@ -148,8 +144,8 @@ public class AbPostTests {
             ArrayList arrayRows = ar.getArray(countRowsInSource, Integer.parseInt(properties.getProperty("system.PercentOfRows")));
 
             for (int i = 0; i < arrayRows.size(); i++) {
-                String sqlRowByRownum = (properties.getProperty("abpost.SOURCE.RowByRownumPart1") + countRowsInSource
-                        + properties.getProperty("abpost.SOURCE.RowByRownumPart2") + arrayRows.get(i));
+                String sqlRowByRownum = (properties.getProperty("shipkurs.SOURCE.RowByRownumPart1") + countRowsInSource
+                        + properties.getProperty("shipkurs.SOURCE.RowByRownumPart2") + arrayRows.get(i));
                 //System.out.println(sqlRowByRownum);
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
                 while (rsFromITest.next()) {
@@ -162,12 +158,10 @@ public class AbPostTests {
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
-                    String sql = (properties.getProperty("abpost.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
-                            + " and LOBE_NR = " + rsFromITest.getString("LOBE_NR") + " and KUNDE = " + rsFromITest.getString("KUNDE")
-                            + " and K_TYPE = '" + rsFromITest.getString("K_TYPE") + "' and FAKTURANR = '" + rsFromITest.getString("FAKTURANR")
-                            + "' and F_TYPE = '" + rsFromITest.getString("F_TYPE")+"'");
+                    String sql = (properties.getProperty("shipkurs.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
+                            + " and LOBE_NR = " + rsFromITest.getString("LOBE_NR") + " and DATO = '" + rsFromITest.getString("DATO")+"'");
 
-                  //  System.out.println("SQL: " + sql);
+                    //  System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
 
@@ -206,7 +200,7 @@ public class AbPostTests {
             }
         }
 
-       // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("abpost.UNITY.CountRows"));
+        // countRowsInSA = getCountRows(statmentForSA, properties.getProperty("shipkurs.UNITY.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
 
 
