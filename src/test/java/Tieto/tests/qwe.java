@@ -3,6 +3,7 @@ package Tieto.tests;
 import Tieto.helpers.ArrayRownums;
 import Tieto.helpers.Asserts;
 import Tieto.helpers.DBHelper;
+import Tieto.helpers.GetDataHelper;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Description;
 import ru.yandex.qatools.allure.annotations.Title;
@@ -18,6 +19,7 @@ import java.util.*;
 
 public class qwe {
     private Asserts asserts = new Asserts();
+    private GetDataHelper dh =  new GetDataHelper();
     private DBHelper db = new DBHelper();
     private ArrayRownums ar = new ArrayRownums();
     private Properties properties = new Properties();
@@ -45,7 +47,6 @@ public class qwe {
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
 //BIG TABLE. Own its algoritm!
         String countSelectedRows = properties.getProperty("bookgods.SOURCE.CountRow") + properties.getProperty("system.RownumPool");
-        System.out.println("Ограничение на выбор записей: " + countSelectedRows);
         ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, countSelectedRows);
 
         while (rsCountRowFromRTest.next()) {
@@ -56,7 +57,6 @@ public class qwe {
             for (int i = 0; i < arrayRows.size(); i++) {
                 String sqlRowByRownum = (properties.getProperty("bookgods.SOURCE.RowByRownumPart1") + countRowsInSource
                         + properties.getProperty("bookgods.SOURCE.RowByRownumPart2") + arrayRows.get(i));
-                System.out.println(sqlRowByRownum);
                 ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
 
                 while (rsFromRTest.next()) {
@@ -64,40 +64,19 @@ public class qwe {
                         mapForRTest.put(rsFromRTest.getMetaData().getColumnName(k), rsFromRTest.getObject(k));
                     }
                     mapForRTest.remove("RN");
-
-                    connectionToSA = db.connToSA();
-                    statmentForSA = db.stFromConnection(connectionToSA);
-//change sql
+// Change UniqKey in SQL
                     String sql = (properties.getProperty("bookgods.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
                             + " and BOOK_NR = " + rsFromRTest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromRTest.getString("VAREPOST_NR"));
 
-                    System.out.println("SQL из MSCRUS: " + sql);
-                    rsFromSA = db.rsFromDB(statmentForSA, sql);
-                    while (rsFromSA.next()) {
-                        if (rsFromSA.getRow() == 0 || rsFromSA.getRow() > 1){
-                            System.err.println("Count rows got from SA: " + rsFromSA.getRow()
-                                    + ". If its > 1 check the unique key in sql query to SA! SQL: " + sql);
-                        }
-                        else {
-                            for (int l = 1; l <= mapForRTest.size(); l++) {
-                                mapForMSCRUS.put(rsFromSA.getMetaData().getColumnName(l), rsFromSA.getObject(l));
-                            }
-                        }
-                    }
-                    rsFromSA.close();
+                    mapForMSCRUS =  dh.getMapFromSA(mapForRTest.size(), sql);
                 }
-
                 rsFromRTest.close();
-
                 asserts.matchMaps(mapForRTest, mapForMSCRUS);
-
-
             }
         }
         //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("bookgods.MSCRUS.CountRows"));
         //asserts.assertRowCount(countRowsInSource, countRowsInSA);
-        statmentForSA.close();
-        connectionToSA.close();
+
         rsCountRowFromRTest.close();
         statmentForRTest.close();
         connectionToRTest.close();
