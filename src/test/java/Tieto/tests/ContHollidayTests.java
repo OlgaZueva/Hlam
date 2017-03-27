@@ -75,7 +75,7 @@ public class ContHollidayTests {
 
 
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
-                    // System.out.println("SQL: " + sql);
+                     System.out.println("SQL: " + sql);
 
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForRTest.size(); l++) {
@@ -161,7 +161,7 @@ public class ContHollidayTests {
                     String sql = (properties.getProperty("contholliday.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
                             + " and DATO = '" + rsFromITest.getString("DATO") + "' and AFDELING = '" + rsFromITest.getString("AFDELING") +"'");
 
-                      //System.out.println("SQL: " + sql);
+                      System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
 

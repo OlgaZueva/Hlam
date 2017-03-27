@@ -65,7 +65,6 @@ public class BookGodsTests {
                     for (int k = 1; k <= rsFromRTest.getMetaData().getColumnCount(); k++) {
                         mapForRTest.put(rsFromRTest.getMetaData().getColumnName(k), rsFromRTest.getObject(k));
                     }
-
                     mapForRTest.remove("RN");
 
                     connectionToSA = db.connToSA();
@@ -88,8 +87,10 @@ public class BookGodsTests {
 
                 rsFromRTest.close();
 
-               // System.out.println("Map1 = " + mapForRTest);
-               // System.out.println("Map2 = " + mapForMSCRUS);
+                System.out.println("Map1 = " + mapForRTest);
+                System.out.println("Map2 = " + mapForMSCRUS);
+
+
 
 
 
@@ -155,7 +156,9 @@ public class BookGodsTests {
                         + properties.getProperty("bookgods.SOURCE.RowByRownumPart2") + arrayRows.get(i));
                 System.out.println(sqlRowByRownum);
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
+
                 while (rsFromITest.next()) {
+                    System.out.println(rsFromITest.getRow());
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
                         mapForITest.put(rsFromITest.getMetaData().getColumnName(k), rsFromITest.getObject(k));
                     }
@@ -180,26 +183,30 @@ public class BookGodsTests {
 
                 rsFromITest.close();
 
-               // System.out.println("Map1 = " + mapForITest);
-              // System.out.println("Map2 = " + mapForUNITY);
+                System.out.println("Map1 = " + mapForITest);
+              System.out.println("Map2 = " + mapForUNITY);
+
 
                 for (Map.Entry entry : mapForITest.entrySet()) {
                     Object q1 = entry.getKey();
                     Object q2 = entry.getValue();
                     if (q2 == null) {
-                        if (mapForUNITY.get(q1) != null || !mapForITest.keySet().contains(q1)) {
+                        if (mapForMSCRUS.get(q1) != null) {
                             // error
-                            System.err.println("Column [" + q1 + "] not exist");
+                            System.err.println("Column [" + q1  + "] expected null but was [" + mapForMSCRUS.get(q1).toString() + "]");
+                        } else if (!mapForMSCRUS.keySet().contains(q1)) {
+                            System.err.println("Column [" + q1  + "] not exist");
                         }
                     } else {
-                        if (!q2.equals(mapForUNITY.get(q1))) {
-                            Object secondValue = mapForUNITY.get(q1);
-                            if (!q2.toString().equals(secondValue != null ? secondValue.toString() : null)) {
-                                System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForUNITY.get(q1) + "]");
+                        if(!q2.equals(mapForMSCRUS.get(q1))){
+                            Object secondValue = mapForMSCRUS.get(q1);
+                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
+                                System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForMSCRUS.get(q1) + "]");
                             }
                         }
                     }
                 }
+
             }
             // }
             //countRowsInSA = getCountRows(statmentForSA, properties.getProperty("bookgods.MSCRUS.CountRows"));

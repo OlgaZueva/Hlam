@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1490596940011" stop="1490597016219">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1490596940136" stop="1490596980808" status="passed">
+            <name>ITestVsUNITY</name>
+            <title>Сравнение данных записей таблиц SHIPKURS в ITest и UNITY</title>
+            <description type="text">Сравнение данных записей таблиц SHIPKURS </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1490596981150" stop="1490597016193" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц SHIPKURS в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц SHIPKURS </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

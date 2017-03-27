@@ -3,11 +3,8 @@
 <suite name="RTestSuit" verbose="1" >
     <test name="RTestVsMSCRUS" >
         <classes>
-
-            <class name="Tieto.tests.ContHollidayTests" />
-            <class name="Tieto.tests.ContTypeTests" />
-            <class name="Tieto.tests.HenvisTestsTMP" />
-            <class name="Tieto.tests.EdiKonvTestsTMP" />
+            <class name="Tieto.tests.BookGodsTests" />
+            <class name="Tieto.tests.qwe" />
         </classes>
     </test>
 

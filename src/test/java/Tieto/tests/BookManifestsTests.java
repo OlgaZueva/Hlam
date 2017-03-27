@@ -71,11 +71,12 @@ public class BookManifestsTests {
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
                     String sql = (properties.getProperty("bookmanifests.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
-                            + " and MFT_FILE_ID = " + rsFromRTest.getString("MFT_FILE_ID"));
+                            + " and MFT_FILE_ID = " + rsFromRTest.getString("MFT_FILE_ID")
+                            + " and BOOK_MFT_ID = " + rsFromRTest.getString("BOOK_MFT_ID"));
 
 
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
-                    // System.out.println("SQL: " + sql);
+                    System.out.println("SQL: " + sql);
 
                     while (rsFromSA.next()) {
                         for (int l = 1; l <= mapForRTest.size(); l++) {
@@ -146,7 +147,7 @@ public class BookManifestsTests {
             for (int i = 0; i < arrayRows.size(); i++) {
                 String sqlRowByRownum = (properties.getProperty("bookmanifests.SOURCE.RowByRownumPart1") + countRowsInSource
                         + properties.getProperty("bookmanifests.SOURCE.RowByRownumPart2") + arrayRows.get(i));
-                //System.out.println(sqlRowByRownum);
+                System.out.println(sqlRowByRownum);
                 ResultSet rsFromITest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
                 while (rsFromITest.next()) {
                     for (int k = 1; k <= rsFromITest.getMetaData().getColumnCount(); k++) {
@@ -159,9 +160,10 @@ public class BookManifestsTests {
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
                     String sql = (properties.getProperty("bookmanifests.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
-                            + " and MFT_FILE_ID = " + rsFromITest.getString("MFT_FILE_ID"));
+                            + " and MFT_FILE_ID = " + rsFromITest.getString("MFT_FILE_ID")
+                            + " and BOOK_MFT_ID = " + rsFromITest.getString("BOOK_MFT_ID"));
 
-                    //  System.out.println("SQL: " + sql);
+                    System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);
 
 

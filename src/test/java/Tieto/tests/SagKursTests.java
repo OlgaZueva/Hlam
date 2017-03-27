@@ -35,7 +35,6 @@ public class SagKursTests {
     private Map<String, Object> mapForUNITY = new HashMap<String, Object>();
 
 
-
     @Description("Сравнение данных записей таблиц SAGKURS ")
     @Title("Сравнение данных записей таблиц SAGKURS в RTest и SAGKURS")
     @Test
@@ -71,9 +70,10 @@ public class SagKursTests {
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
                     String sql = (properties.getProperty("sagkurs.MSCRUS.RowByPKFromSA") + rsFromRTest.getString("SELSKAB")
-                            + " and SAGSNR = " + rsFromRTest.getString("SAGSNR") + " and AFDELING = '" + rsFromRTest.getString("AFDELING") + "'");
+                            + " and SAGSNR = " + rsFromRTest.getString("SAGSNR") + " and AFDELING = '" + rsFromRTest.getString("AFDELING")
+                            + "' and VALUTA = '" + rsFromRTest.getString("VALUTA") + "'");
 
-                    rsFromSA = db.rsFromDB(statmentForSA, sql);
+                            rsFromSA = db.rsFromDB(statmentForSA, sql);
                     // System.out.println("SQL: " + sql);
 
                     while (rsFromSA.next()) {
@@ -94,12 +94,12 @@ public class SagKursTests {
                     if (q2 == null) {
                         if (mapForMSCRUS.get(q1) != null || !mapForMSCRUS.keySet().contains(q1)) {
                             // error
-                            System.err.println("Column [" + q1  + "] not exist");
+                            System.err.println("Column [" + q1 + "] not exist");
                         }
                     } else {
-                        if(!q2.equals(mapForMSCRUS.get(q1))){
+                        if (!q2.equals(mapForMSCRUS.get(q1))) {
                             Object secondValue = mapForMSCRUS.get(q1);
-                            if(!q2.toString().equals(secondValue!=null?secondValue.toString():null)){
+                            if (!q2.toString().equals(secondValue != null ? secondValue.toString() : null)) {
                                 System.err.println("Column [" + q1.toString() + "] does not match. Expected [" + q2 + "], actual - [" + mapForMSCRUS.get(q1) + "]");
                             }
                         }
@@ -158,7 +158,8 @@ public class SagKursTests {
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
                     String sql = (properties.getProperty("sagkurs.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
-                            + " and SAGSNR = " + rsFromITest.getString("SAGSNR") + " and AFDELING = '" + rsFromITest.getString("AFDELING") + "'");
+                            + " and SAGSNR = " + rsFromITest.getString("SAGSNR") + " and AFDELING = '" + rsFromITest.getString("AFDELING")
+                            + "' and VALUTA = '" + rsFromITest.getString("VALUTA") + "'");
 
                     //  System.out.println("SQL: " + sql);
                     rsFromSA = db.rsFromDB(statmentForSA, sql);

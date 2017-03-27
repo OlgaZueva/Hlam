@@ -38,7 +38,7 @@ public class BogfTransTests {
 
     @Description("Сравнение данных записей таблиц BOGF_TRANS ")
     @Title("Сравнение данных записей таблиц BOGF_TRANS в RTest и MSCRUS")
-    @Test (enabled = false)
+    @Test
     public void RTestVsMSCRUS() throws SQLException, IOException {
         properties.load(new FileReader(new File(String.format("src/test/resources/sql.properties"))));
 

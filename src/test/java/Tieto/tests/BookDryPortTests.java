@@ -149,7 +149,7 @@ public class BookDryPortTests {
                     connectionToSA = db.connToSA();
                     statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
-                    String sql = (properties.getProperty("bookdryport.MSCRUS.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
+                    String sql = (properties.getProperty("bookdryport.UNITY.RowByPKFromSA") + rsFromITest.getString("SELSKAB")
                             + " and BOOK_NR = " + rsFromITest.getString("BOOK_NR"));
 
                     System.out.println("SQL: " + sql);
