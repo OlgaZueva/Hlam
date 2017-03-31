@@ -2,7 +2,6 @@ package Tieto.tests.LoadFromXLS;
 
 import Tieto.helpers.DBHelper;
 import Tieto.models.PortsOverview;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.*;
@@ -48,31 +47,25 @@ try{
         }
     }
 
-        properties.load(new FileReader(new File(String.format("src/test/resources/XLS.properties"))));
+        properties.load(new FileReader(new File(String.format("src/test/resources/excel.properties"))));
         connectionToSA = db.connToSA();
         statmentForSA = db.stFromConnection(connectionToSA);
 //change sql
-        String sql = (properties.getProperty("portsOverviewFromSA") + "LocationCode = '" + portsOverview.getLocationCode()
-                + "' and Liner = '" + portsOverview.getLiner() + "' and LinerAssistant ='" + portsOverview.getLinerAssistant()
-                + "' and DestinationRegion ='" + portsOverview.getDestinationRegion()
-                + "' and TradeNameGVAStyleForEMEDstatistic ='" + portsOverview.getTradeNameGVAStyleForEMEDstatistic()
-                + "' and LANDLOCKEDCountry ='" + portsOverview.getLANDLOCKEDCountry() + "' and AgencyRegion='" + portsOverview.getAgencyRegion()
-                + "' and AgencyCode ='" + portsOverview.getAgencyCode()+ "' and CTSTier5 ='" + portsOverview.getCTSTier5()
+        String sql = (properties.getProperty("portsOverviewFromSA") + "Location_Code = '" + portsOverview.getLocationCode()
+                + "' and Liner = '" + portsOverview.getLiner() + "' and Liner_Assistant ='" + portsOverview.getLinerAssistant()
+                + "' and Destination_Region ='" + portsOverview.getDestinationRegion()
+                + "' and Trade_Name_GVA_Style_For_EMED_statistic ='" + portsOverview.getTradeNameGVAStyleForEMEDstatistic()
+                + "' and LAND_LOCKED_Country ='" + portsOverview.getLANDLOCKEDCountry() + "' and Agency_Region='" + portsOverview.getAgencyRegion()
+                + "' and Agency_ID ='" + portsOverview.getAgencyCode()+ "' and CTSTier5 ='" + portsOverview.getCTSTier5()
                 + "' and CTSTier4 ='" + portsOverview.getCTSTier4() + "' and USPiersUSPORT ='" + portsOverview.getUSPiersUSPORT()
-                + "' and USPiersULTCODE ='" + portsOverview.getUSPiersULTCODE() + "' and DKEXPTEAM ='" + portsOverview.getDKEXPTEAM()
-                + "' and DeepseaFlagForFeederDailyBookingPurpose ='" + portsOverview.getDeepseaFlagForFeederDailyBookingPurpose()
-                + "' and VALID_FROM ='" + portsOverview.getVALID_FROM() + "'");
+                + "' and USPiersULT_CODE ='" + portsOverview.getUSPiersULTCODE() + "' and DKEXPTEAM ='" + portsOverview.getDKEXPTEAM()
+                + "' and VALID_FROM ='" + portsOverview.getVALID_FROM()
+                +"' and DeepseaFlag ='" + portsOverview.getDeepseaFlag()+ "'");
+
         System.out.println(sql);
 
-/*
-        rsFromSA = db.rsFromDB(statmentForSA, sql);
-        while (rsFromSA.next()) {
-            for (int l = 1; l <= mapForRTest.size(); l++) {
-                mapForMSCRUS.put(rsFromSA.getMetaData().getColumnName(l), rsFromSA.getObject(l));
-            }
-        }
-        rsFromSA.close();
-*/
+        statmentForSA.close();
+        connectionToSA.close();
     }
 
 }

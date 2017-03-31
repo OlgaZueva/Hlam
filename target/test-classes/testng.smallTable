@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="RTestSuit" verbose="1" >
+    <test name="RTestVsMSCRUS" >
+        <classes>
+            <class name="Tieto.tests.AdgangTests" />
+            <class name="Tieto.tests.AdgangLinTests" />
+            <class name="Tieto.tests.BookDryPortTests" />
+            <class name="Tieto.tests.ControlOfficeTests" />
+            <class name="Tieto.tests.ContTypeTests" />
+            <class name="Tieto.tests.SelskabTests" />
+            <class name="Tieto.tests.UtsConstantsTests" />
+        </classes>
+    </test>
+
+</suite>

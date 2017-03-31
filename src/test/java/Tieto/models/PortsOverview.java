@@ -1,5 +1,7 @@
 package Tieto.models;
 
+import java.util.Date;
+
 /**
  * Created by zuevaolg on 27.03.2017.
  */
@@ -17,7 +19,7 @@ public class PortsOverview {
     private String USPiersUSPORT;
     private String USPiersULTCODE;
     private String DKEXPTEAM;
-    private String DeepseaFlagForFeederDailyBookingPurpose;
+    private String DeepseaFlag;
     private String VALID_FROM;
 
     public PortsOverview(String LocationCode, String Liner, String LinerAssistant, String DestinationRegion,
@@ -38,7 +40,7 @@ public class PortsOverview {
         this.USPiersUSPORT = USPiersUSPORT;
         this.USPiersULTCODE = USPiersULTCODE;
         this.DKEXPTEAM = DKEXPTEAM;
-        this.DeepseaFlagForFeederDailyBookingPurpose = DeepseaFlagForFeederDailyBookingPurpose;
+        this.DeepseaFlag = DeepseaFlagForFeederDailyBookingPurpose;
         this.VALID_FROM = VALID_FROM;
 
     }
@@ -148,12 +150,12 @@ public class PortsOverview {
         this.DKEXPTEAM = DKEXPTEAM;
     }
 
-    public String getDeepseaFlagForFeederDailyBookingPurpose() {
-        return DeepseaFlagForFeederDailyBookingPurpose;
+    public String getDeepseaFlag() {
+        return DeepseaFlag;
     }
 
-    public void setDeepseaFlagForFeederDailyBookingPurpose(String deepseaFlagForFeederDailyBookingPurpose) {
-        DeepseaFlagForFeederDailyBookingPurpose = deepseaFlagForFeederDailyBookingPurpose;
+    public void setDeepseaFlag(String deepseaFlag) {
+        DeepseaFlag = deepseaFlag;
     }
 
     public String getVALID_FROM() {
@@ -190,8 +192,7 @@ public class PortsOverview {
         if (USPiersULTCODE != null ? !USPiersULTCODE.equals(that.USPiersULTCODE) : that.USPiersULTCODE != null)
             return false;
         if (DKEXPTEAM != null ? !DKEXPTEAM.equals(that.DKEXPTEAM) : that.DKEXPTEAM != null) return false;
-        if (DeepseaFlagForFeederDailyBookingPurpose != null ? !DeepseaFlagForFeederDailyBookingPurpose.equals(that.DeepseaFlagForFeederDailyBookingPurpose) : that.DeepseaFlagForFeederDailyBookingPurpose != null)
-            return false;
+        if (DeepseaFlag != null ? !DeepseaFlag.equals(that.DeepseaFlag) : that.DeepseaFlag != null) return false;
         return VALID_FROM != null ? VALID_FROM.equals(that.VALID_FROM) : that.VALID_FROM == null;
     }
 
@@ -210,7 +211,7 @@ public class PortsOverview {
         result = 31 * result + (USPiersUSPORT != null ? USPiersUSPORT.hashCode() : 0);
         result = 31 * result + (USPiersULTCODE != null ? USPiersULTCODE.hashCode() : 0);
         result = 31 * result + (DKEXPTEAM != null ? DKEXPTEAM.hashCode() : 0);
-        result = 31 * result + (DeepseaFlagForFeederDailyBookingPurpose != null ? DeepseaFlagForFeederDailyBookingPurpose.hashCode() : 0);
+        result = 31 * result + (DeepseaFlag != null ? DeepseaFlag.hashCode() : 0);
         result = 31 * result + (VALID_FROM != null ? VALID_FROM.hashCode() : 0);
         return result;
     }
@@ -231,8 +232,8 @@ public class PortsOverview {
                 ", USPiersUSPORT='" + USPiersUSPORT + '\'' +
                 ", USPiersULTCODE='" + USPiersULTCODE + '\'' +
                 ", DKEXPTEAM='" + DKEXPTEAM + '\'' +
-                ", DeepseaFlagForFeederDailyBookingPurpose='" + DeepseaFlagForFeederDailyBookingPurpose + '\'' +
-                ", VALID_FROM='" + VALID_FROM + '\'' +
+                ", DeepseaFlag='" + DeepseaFlag + '\'' +
+                ", VALID_FROM=" + VALID_FROM +
                 '}';
     }
 }
