@@ -35,8 +35,8 @@ public class Asserts {
 
     @Step ("Сравнение данных записи в таблицах")
     public void matchMaps(Map<String, Object> mapSource, Map<String, Object> mapSA) {
-        // System.out.println("Map from Source = " + mapSource);
-        // System.out.println("Map from StArea = " + mapSA);
+         System.out.println("Map from Source = " + mapSource);
+         System.out.println("Map from StArea = " + mapSA);
         for (Map.Entry entry : mapSource.entrySet()) {
             Object q1 = entry.getKey();
             Object q2 = entry.getValue();

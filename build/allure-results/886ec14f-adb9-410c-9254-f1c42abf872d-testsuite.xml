@@ -21,7 +21,7 @@
 	at com.microsoft.sqlserver.jdbc.SQLServerResultSet$FetchBuffer.nextRow(SQLServerResultSet.java:6361)
 	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.fetchBufferNext(SQLServerResultSet.java:1647)
 	at com.microsoft.sqlserver.jdbc.SQLServerResultSet.next(SQLServerResultSet.java:983)
-	at Tieto.tests.ContHollidayTests.RTestVsMSCRUS(ContHollidayTests.java:80)
+	at Tieto.tests.IntialLoadFirstEdition.ContHollidayTests.RTestVsMSCRUS(ContHollidayTests.java:80)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

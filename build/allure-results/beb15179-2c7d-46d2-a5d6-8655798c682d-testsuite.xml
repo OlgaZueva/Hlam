@@ -10,7 +10,7 @@
                 <message>SQLRecoverableException: Closed Resultset: next</message>
                 <stack-trace>java.sql.SQLRecoverableException: Closed Resultset: next
 	at oracle.jdbc.driver.OracleResultSetImpl.next(OracleResultSetImpl.java:238)
-	at Tieto.tests.BookGodsTests.ITestVsUNIT(BookGodsTests.java:147)
+	at Tieto.tests.IntialLoadFirstEdition.BookGodsTests.ITestVsUNIT(BookGodsTests.java:147)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

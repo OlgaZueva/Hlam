@@ -17,7 +17,7 @@
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:270)
 	at Tieto.helpers.DBHelper.connToITest(DBHelper.java:12)
-	at Tieto.tests.BookGodsTests.ITestVsUNIT(BookGodsTests.java:140)
+	at Tieto.tests.IntialLoadFirstEdition.BookGodsTests.ITestVsUNIT(BookGodsTests.java:140)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -50,7 +50,7 @@
                 <message>ArithmeticException: / by zero</message>
                 <stack-trace>java.lang.ArithmeticException: / by zero
 	at Tieto.helpers.ArrayRownums.getArray(ArrayRownums.java:13)
-	at Tieto.tests.SelskabTests.RTestVsMSCRUS(SelskabTests.java:53)
+	at Tieto.tests.IntialLoadFirstEdition.SelskabTests.RTestVsMSCRUS(SelskabTests.java:53)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

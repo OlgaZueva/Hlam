@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1491136877442" stop="1491136897586">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1491136877462" stop="1491136890817" status="passed">
+            <name>ITestVsUNITY</name>
+            <title>Сравнение данных записей таблиц BOOKMANIFESTS в ITest и UNITY</title>
+            <description type="text">Сравнение данных записей таблиц BOOKMANIFESTS </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1491136890915" stop="1491136897583" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц BOOKMANIFESTS в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц BOOKMANIFESTS </description>
+            <steps/>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

@@ -3,7 +3,7 @@
 <suite name="RTestSuit" verbose="1" >
     <test name="RTestVsMSCRUS" >
         <classes>
-            <class name="Tieto.tests.BookGodsTests" />
+            <class name="Tieto.tests.IntialLoadFirstEdition.BookGodsTests" />
             <class name="Tieto.tests.qwe" />
         </classes>
     </test>
