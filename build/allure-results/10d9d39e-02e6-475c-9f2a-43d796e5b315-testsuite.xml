@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1491218706857" stop="1491218889951">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1491218708147" stop="1491218865097" status="passed">
+            <name>ITestVsUNITY</name>
+            <title>Сравнение данных записей таблиц ADRESSE в ITest и UNITY</title>
+            <description type="text">Сравнение данных записей таблиц ADRESSE </description>
+            <steps>
+                <step start="1491218846996" stop="1491218846998" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218849046" stop="1491218849046" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218851045" stop="1491218851045" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218853050" stop="1491218853050" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218855017" stop="1491218855017" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218857156" stop="1491218857156" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218859125" stop="1491218859125" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218862092" stop="1491218862092" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218865004" stop="1491218865004" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1491218865686" stop="1491218889932" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц ADRESSE в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц ADRESSE </description>
+            <steps>
+                <step start="1491218880371" stop="1491218880371" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218881447" stop="1491218881447" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218882802" stop="1491218882802" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218883869" stop="1491218883869" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218885257" stop="1491218885257" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218886292" stop="1491218886292" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218887697" stop="1491218887698" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218888759" stop="1491218888759" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491218889844" stop="1491218889844" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

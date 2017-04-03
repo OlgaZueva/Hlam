@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1491205886519" stop="1491205907077">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1491205886957" stop="1491205906500" status="passed">
+            <name>RTestVsMSCRUS</name>
+            <title>Сравнение данных записей таблиц BOOKGODS в RTest и MSCRUS</title>
+            <description type="text">Сравнение данных записей таблиц BOOKGODS </description>
+            <steps>
+                <step start="1491205894921" stop="1491205894934" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205896303" stop="1491205896316" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205897693" stop="1491205897697" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205899033" stop="1491205899041" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205901109" stop="1491205901111" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205902418" stop="1491205902423" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205903735" stop="1491205903741" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205905086" stop="1491205905091" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start="1491205906409" stop="1491205906411" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

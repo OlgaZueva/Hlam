@@ -24,11 +24,18 @@ public class GetDataHelper {
         Statement stForSA = db.stFromConnection(connectionToSA);
         System.out.println("SQL из SA: " + sql);
         ResultSet rsFromSA = db.rsFromDB(stForSA, sql);
-        System.out.println("rsFromSA.next():" + rsFromSA.next());
-        if (rsFromSA.next() == false) {
-            System.err.println(" Record in SA not found!");
-            return null;
-        } else {
+
+        while (rsFromSA.next()) {
+            if (rsFromSA.getRow() > 1) {
+                System.err.println("Count rows got from SA: " + rsFromSA.getRow()
+                        + ". If its > 1 check the unique key in sql query to SA! SQL: " + sql);
+            } else {
+                for (int l = 1; l <= mapForRTestSize; l++) {
+                    mapForSA.put(rsFromSA.getMetaData().getColumnName(l), rsFromSA.getObject(l));
+                }
+            }
+        }
+     /*
             while (rsFromSA.next()) {
                 System.out.println("rsFromSA.getRow(): " + rsFromSA.getRow());
                 if (rsFromSA.getRow() > 1) {
@@ -41,14 +48,13 @@ public class GetDataHelper {
                     }
                 }
             }
-
-        }
+            */
         rsFromSA.close();
         stForSA.close();
         connectionToSA.close();
-        System.out.println(mapForSA);
         return mapForSA;
     }
+
 
     public Map<String, Object> getMapFromSource(ResultSet rsFromSource) throws SQLException {
         for (int k = 1; k <= rsFromSource.getMetaData().getColumnCount(); k++) {
@@ -93,7 +99,6 @@ public class GetDataHelper {
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForITest, sql);
         int countRowInITest = 0;
         while (rsCountRowFromITest.next()) {
-            System.out.println(rsCountRowFromITest.getString("c"));
             countRowInITest = Integer.parseInt(rsCountRowFromITest.getString("c"));
         }
         rsCountRowFromITest.close();
@@ -105,18 +110,42 @@ public class GetDataHelper {
     public int getCountRowsInSA(String table) throws IOException, SQLException {
         getPropertiesFile();
         String sql = properties.getProperty(table);
-        System.out.println("Запрос колв-ва строк из SA: " + sql);
+        System.out.println("Запрос кол-ва строк из SA: " + sql);
         Connection connectionToSA = db.connToSA();
         Statement statmentForSA = db.stFromConnection(connectionToSA);
         ResultSet rsCountRowFromSA = db.rsFromDB(statmentForSA, sql);
         int countRowInITest = 0;
         while (rsCountRowFromSA.next()) {
-            System.out.println(rsCountRowFromSA.getString("c"));
             countRowInITest = Integer.parseInt(rsCountRowFromSA.getString("c"));
         }
         rsCountRowFromSA.close();
         statmentForSA.close();
         connectionToSA.close();
         return countRowInITest;
+    }
+
+    public int getCountRowsInRTest(String table) throws IOException, SQLException {
+        getPropertiesFile();
+        String sql = properties.getProperty(table);
+        System.out.println("Запрос кол-ва строк из RTest: " + sql);
+        Connection connectionToRTest = db.connToRTest();
+        Statement statmentForRTest = db.stFromConnection(connectionToRTest);
+        ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, sql);
+        int countRowInRTest = 0;
+        while (rsCountRowFromRTest.next()) {
+            countRowInRTest = Integer.parseInt(rsCountRowFromRTest.getString("c"));
+        }
+        rsCountRowFromRTest.close();
+        statmentForRTest.close();
+        connectionToRTest.close();
+        return countRowInRTest;
+    }
+
+
+    public String getRoonumPoolForSmallTable(String parametrForTable ) throws IOException {
+        getPropertiesFile();
+        String sql = properties.getProperty(parametrForTable);
+        System.out.println("Запрос для пула, из которого будут выбраны записи: " + sql);
+        return sql;
     }
 }

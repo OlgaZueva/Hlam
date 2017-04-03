@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
 
-public class BookGodsTests {
+public class AdgangTests {
     private Asserts asserts = new Asserts();
     private GetDataHelper dh = new GetDataHelper();
     private DBHelper db = new DBHelper();
@@ -26,17 +26,17 @@ public class BookGodsTests {
     private Map<String, Object> mapForSA = new HashMap<String, Object>();
 
 
-    @Description("Сравнение данных записей таблиц BOOKGODS ")
-    @Title("Сравнение данных записей таблиц BOOKGODS в RTest и MSCRUS")
+    @Description("Сравнение данных записей таблиц ADGANG ")
+    @Title("Сравнение данных записей таблиц ADGANG в RTest и MSCRUS")
     @Test
     public void RTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
 //Для маленьких таблиц должен быть выбран count(*). Менять параметр тут.
-        int countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
-        String countSelectedRows = dh.getRoonumPool("bookgods.SOURCE.CountRowForPool");
+        int countRowsInSource = dh.getCountRowsInRTest("adgang.SOURCE.CountRow");
+        String countSelectedRows = dh.getRoonumPoolForSmallTable("adgang.SOURCE.CountRow");
         ArrayList arrayRows = dh.getArray(countRowsInSource);
-        String sqlfromSource = (properties.getProperty("bookgods.SOURCE.RowByRownumPart1") + countRowsInSource
-                + properties.getProperty("bookgods.SOURCE.RowByRownumPart2"));
+        String sqlfromSource = (properties.getProperty("adgang.SOURCE.RowByRownumPart1") + countRowsInSource
+                + properties.getProperty("adgang.SOURCE.RowByRownumPart2"));
 //Сравнение данных
         Connection connectionToRTest = db.connToRTest();
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
@@ -49,8 +49,9 @@ public class BookGodsTests {
                 while (rsFromRTest.next()) {
                     mapForSource = dh.getMapFromSource(rsFromRTest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("bookgods.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB")
-                            + " and BOOK_NR = " + rsFromRTest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromRTest.getString("VAREPOST_NR"));
+                    String sqlFromSA = (properties.getProperty("adgang.MSCRUS.RowByPKFromSA")
+                            + " VOR_REF = '" + rsFromRTest.getString("VOR_REF") + "'");
+
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromRTest.close();
@@ -62,17 +63,17 @@ public class BookGodsTests {
         connectionToRTest.close();
     }
 
-    @Description("Сравнение данных записей таблиц BOOKGODS ")
-    @Title("Сравнение данных записей таблиц BOOKGODS в RTest и UNITY")
+    @Description("Сравнение данных записей таблиц ADGANG ")
+    @Title("Сравнение данных записей таблиц ADGANG в ITest и UNITY")
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
 //Для маленьких таблиц должен быть выбран count(*). Менять параметр тут.
-        int countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
-        String countSelectedRows = dh.getRoonumPool("bookgods.SOURCE.CountRowForPool");
+        int countRowsInSource = dh.getCountRowsInITest("adgang.SOURCE.CountRow");
+        String countSelectedRows = dh.getRoonumPoolForSmallTable("adgang.SOURCE.CountRow");
         ArrayList arrayRows = dh.getArray(countRowsInSource);
-        String sqlfromSource = (properties.getProperty("bookgods.SOURCE.RowByRownumPart1") + countRowsInSource
-                + properties.getProperty("bookgods.SOURCE.RowByRownumPart2"));
+        String sqlfromSource = (properties.getProperty("adgang.SOURCE.RowByRownumPart1") + countRowsInSource
+                + properties.getProperty("adgang.SOURCE.RowByRownumPart2"));
 //Сравнение данных
         Connection connectionToITest = db.connToITest();
         Statement statmentForITest = db.stFromConnection(connectionToITest);
@@ -85,8 +86,8 @@ public class BookGodsTests {
                 while (rsFromITest.next()) {
                     mapForSource = dh.getMapFromSource(rsFromITest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("bookgods.UNITY.RowByPKFromSA") + " SELSKAB = " + rsFromITest.getString("SELSKAB")
-                            + " and BOOK_NR = " + rsFromITest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromITest.getString("VAREPOST_NR"));
+                    String sqlFromSA = (properties.getProperty("adgang.UNITY.RowByPKFromSA")
+                            + " VOR_REF = '" + rsFromITest.getString("VOR_REF") + "'");
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromITest.close();
