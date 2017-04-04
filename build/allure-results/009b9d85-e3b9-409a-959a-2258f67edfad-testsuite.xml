@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1491244119463" stop="1491244121718">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1491244119514" stop="1491244121628" status="passed">
+            <name>BogfTransRTestVsMSCRUS</name>
+            <steps>
+                <step start="1491244121620" stop="1491244121627" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 1 716 791, в SA: 1 716 791 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>
