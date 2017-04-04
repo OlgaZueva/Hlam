@@ -85,7 +85,7 @@ public class CountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test
+    @Test(enabled = false)
     public void BogfTransRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bogftrans.SOURCE.CountRow");
@@ -93,11 +93,59 @@ public class CountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test
+    @Test(enabled = false)
     public void BogfTransITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bogftrans.SOURCE.CountRow");
         int counRowsInSA = dh.getCountRowsInSA("bogftrans.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test (enabled = false)
+    public void BookDetailsRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("bookdetails.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookdetails.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test (enabled = false)
+    public void BookDetailsITestVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("bookdetails.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookdetails.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test
+    public void BookDryPortsRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("bookdryport.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookdryport.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test
+    public void BookDryPortsVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("bookdryport.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookdryport.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test(enabled = false)
+    public void BookEventRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("bookevent.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookevent.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test(enabled = false)
+    public void BookEventITestVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("bookevent.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookevent.UNITY.CountRows");
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
