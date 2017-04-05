@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * Created by zuevaolg on 03.04.2017.
  */
-public class CountsInTablesTests {
+public class ZCountsInTablesTests {
     private Properties properties = new Properties();
     private Asserts asserts = new Asserts();
     private GetDataHelper dh = new GetDataHelper();
@@ -514,6 +514,38 @@ public class CountsInTablesTests {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("selskab.SOURCE.CountRow");
         int counRowsInSA = dh.getCountRowsInSA("selskab.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test
+    public void ShipKursRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("shipkurs.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("shipkurs.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test
+    public void ShipKursITestVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("shipkurs.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("shipkurs.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test
+    public void UtsConstantsRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("utsconstants.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("utsconstants.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test
+    public void UtsConstantsITestVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("utsconstants.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("utsconstants.UNITY.CountRows");
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 

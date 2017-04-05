@@ -3,25 +3,32 @@
 <suite name="RTestSuit" verbose="1" >
     <test name="RTestVsMSCRUS" >
         <classes>
-            <class name="Tieto.tests.IntialLoadFirstEdition.AbPostTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.AdresseTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BogfTransTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookDetailsTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookEventTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookGodsTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookKorTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookLinTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookManifestsTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.BookTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.ContRepTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.ExpVesselTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.FaktPostTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.KundeTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.OrdreTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.OrdreLinTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.SagTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.SagKursTests" />
-            <class name="Tieto.tests.IntialLoadFirstEdition.ShipKursTests" />
+            <class name="Tieto.tests.AbPostTests" />
+            <class name="Tieto.tests.AdresseTests" />
+            <class name="Tieto.tests.BogfTransTests" />
+            <class name="Tieto.tests.BookDetailsTests" />
+            <class name="Tieto.tests.BookEventTests" />
+            <class name="Tieto.tests.BookFakTests" />
+            <class name="Tieto.tests.BookGodsTests" />
+            <class name="Tieto.tests.BookKorTests" />
+            <class name="Tieto.tests.BookLinTests" />
+            <class name="Tieto.tests.BookManifestsTests" />
+            <class name="Tieto.tests.BookMftFileTests" />
+            <class name="Tieto.tests.BookMftRemarksTests" />
+            <class name="Tieto.tests.BookTests" />
+            <class name="Tieto.tests.BookVesselTests" />
+            <class name="Tieto.tests.ContHollidayTests" />
+            <class name="Tieto.tests.ContRepTests" />
+            <class name="Tieto.tests.EdiKonvTests" />
+            <class name="Tieto.tests.ExpVesselTests" />
+            <class name="Tieto.tests.FaktPostTests" />
+            <class name="Tieto.tests.HenvisTests" />
+            <class name="Tieto.tests.KundeTests" />
+            <class name="Tieto.tests.OrdreLinTests" />
+            <class name="Tieto.tests.OrdreTests" />
+            <class name="Tieto.tests.SagKursTests" />
+            <class name="Tieto.tests.SagTests" />
+            <class name="Tieto.tests.ShipKursTests" />
         </classes>
     </test>
 

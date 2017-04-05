@@ -1,12 +1,6 @@
 package Tieto.helpers;
 
-import Tieto.models.Adgang;
-import Tieto.models.Adresse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.testng.annotations.BeforeMethod;
 import ru.yandex.qatools.allure.annotations.Step;
-
 
 import java.util.Map;
 
