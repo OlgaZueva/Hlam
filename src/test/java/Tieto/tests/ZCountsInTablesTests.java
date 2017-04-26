@@ -20,7 +20,7 @@ public class ZCountsInTablesTests {
     private GetDataHelper dh = new GetDataHelper();
     private DBHelper db = new DBHelper();
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AbPostRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("abpost.SOURCE.CountRow");
@@ -28,7 +28,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AbPostITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("abpost.SOURCE.CountRow");
@@ -36,7 +36,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AdgangLinRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("adganglin.SOURCE.CountRow");
@@ -44,7 +44,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AdgangLinITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("adganglin.SOURCE.CountRow");
@@ -52,7 +52,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AdgangRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("adgang.SOURCE.CountRow");
@@ -60,7 +60,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AdgangITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("adgang.SOURCE.CountRow");
@@ -69,7 +69,7 @@ public class ZCountsInTablesTests {
     }
 
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void AdresseRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("adresse.SOURCE.CountRow");
@@ -77,7 +77,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void AdresseITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("adresse.SOURCE.CountRow");
@@ -85,7 +85,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void BogfTransRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bogftrans.SOURCE.CountRow");
@@ -93,7 +93,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void BogfTransITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bogftrans.SOURCE.CountRow");
@@ -101,7 +101,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void BookDetailsRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bookdetails.SOURCE.CountRow");
@@ -109,7 +109,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void BookDetailsITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bookdetails.SOURCE.CountRow");
@@ -117,7 +117,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test
+    @Test(enabled = true)
     public void BookDryPortsRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bookdryport.SOURCE.CountRow");
@@ -125,7 +125,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test
+    @Test(enabled = true)
     public void BookDryPortsVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bookdryport.SOURCE.CountRow");
@@ -133,7 +133,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void BookEventRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bookevent.SOURCE.CountRow");
@@ -141,7 +141,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void BookEventITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bookevent.SOURCE.CountRow");
@@ -165,7 +165,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void BookGodsRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bookgods.SOURCE.CountRow");
@@ -173,7 +173,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void BookGodsITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bookgods.SOURCE.CountRow");

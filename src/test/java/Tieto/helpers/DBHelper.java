@@ -17,7 +17,7 @@ public class DBHelper {
     }
 
     public Connection connToSA() throws SQLException {
-        return DriverManager.getConnection("jdbc:sqlserver://10.45.1.122;databaseName=BIFROST;user=sa;password=JGdedf&#fsqwhdc");
+        return DriverManager.getConnection("jdbc:sqlserver://10.45.1.122;databaseName=StagingAreaTest;user=sa;password=JGdedf&#fsqwhdc");
     }
 
     public  Statement stFromConnection(Connection connection) throws SQLException {

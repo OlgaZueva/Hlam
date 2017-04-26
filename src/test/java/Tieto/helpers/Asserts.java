@@ -22,7 +22,7 @@ public class Asserts {
         // System.out.println("Map from StArea = " + mapSA);
 
         if (mapSA.size() == 0) {
-            System.err.println("Record not found!");
+            System.err.println("Record in StagingArea not found!");
         } else {
             for (Map.Entry entry : mapSource.entrySet()) {
                 Object q1 = entry.getKey();

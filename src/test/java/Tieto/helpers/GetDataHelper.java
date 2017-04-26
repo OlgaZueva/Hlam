@@ -15,15 +15,14 @@ import java.util.Properties;
 public class GetDataHelper {
     private Properties properties = new Properties();
     private DBHelper db = new DBHelper();
-
-    private Map<String, Object> mapForSA = new HashMap<String, Object>();
     private Map<String, Object> mapForSource = new HashMap<String, Object>();
 
     public Map<String, Object> getMapFromSA(int mapForRTestSize, String sql) throws SQLException {
         Connection connectionToSA = db.connToSA();
         Statement stForSA = db.stFromConnection(connectionToSA);
-        System.out.println("SQL из SA: " + sql);
+        System.out.println("SQL for SA: " + sql);
         ResultSet rsFromSA = db.rsFromDB(stForSA, sql);
+        Map<String, Object> mapForSA = new HashMap<String, Object>();
 
         while (rsFromSA.next()) {
             if (rsFromSA.getRow() > 1) {
@@ -35,20 +34,6 @@ public class GetDataHelper {
                 }
             }
         }
-     /*
-            while (rsFromSA.next()) {
-                System.out.println("rsFromSA.getRow(): " + rsFromSA.getRow());
-                if (rsFromSA.getRow() > 1) {
-                    System.err.println("Count rows got from SA: " + rsFromSA.getRow()
-                            + ". If its > 1 check the unique key in sql query to SA! SQL: " + sql);
-                    return null;
-                } else {
-                    for (int l = 1; l <= mapForRTestSize; l++) {
-                        mapForSA.put(rsFromSA.getMetaData().getColumnName(l), rsFromSA.getObject(l));
-                    }
-                }
-            }
-            */
         rsFromSA.close();
         stForSA.close();
         connectionToSA.close();
