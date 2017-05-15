@@ -11,9 +11,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
- * Created by zuevaolg on 03.04.2017.
- */
 public class ZCountsInTablesTests {
     private Properties properties = new Properties();
     private Asserts asserts = new Asserts();
@@ -404,6 +401,23 @@ public class ZCountsInTablesTests {
         int counRowsInSA = dh.getCountRowsInSA("faktpost.UNITY.CountRows");
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
+
+    @Test (enabled = true)
+    public void getChargesRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("getCharges.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("getCharges.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test (enabled = true)
+    public void getChargesITestVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("getCharges.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("getCharges.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
 
     @Test
     public void HenvisRTestVsMSCRUS() throws SQLException, IOException {
