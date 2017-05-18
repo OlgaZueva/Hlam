@@ -17,7 +17,7 @@ public class ZCountsInTablesTests {
     private GetDataHelper dh = new GetDataHelper();
     private DBHelper db = new DBHelper();
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void AbPostRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("abpost.SOURCE.CountRow");
@@ -25,7 +25,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void AbPostITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("abpost.SOURCE.CountRow");
@@ -33,7 +33,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void AdgangLinRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("adganglin.SOURCE.CountRow");
@@ -41,7 +41,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void AdgangLinITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("adganglin.SOURCE.CountRow");
@@ -49,7 +49,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void AdgangRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("adgang.SOURCE.CountRow");
@@ -57,7 +57,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void AdgangITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("adgang.SOURCE.CountRow");
@@ -82,7 +82,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void BogfTransRTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInRTest("bogftrans.SOURCE.CountRow");
@@ -90,7 +90,7 @@ public class ZCountsInTablesTests {
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void BogfTransITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bogftrans.SOURCE.CountRow");
@@ -111,6 +111,22 @@ public class ZCountsInTablesTests {
         getPropertiesFile();
         int counRowsInSource = dh.getCountRowsInITest("bookdetails.SOURCE.CountRow");
         int counRowsInSA = dh.getCountRowsInSA("bookdetails.UNITY.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test (enabled = true)
+    public void BookDetailsMofRTestVsMSCRUS() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInRTest("bookdetailsmof.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookdetailsmof.MSCRUS.CountRows");
+        asserts.assertRowCount(counRowsInSource, counRowsInSA);
+    }
+
+    @Test (enabled = true)
+    public void BookDetailsMofITestVsUNITY() throws SQLException, IOException {
+        getPropertiesFile();
+        int counRowsInSource = dh.getCountRowsInITest("bookdetailsmof.SOURCE.CountRow");
+        int counRowsInSA = dh.getCountRowsInSA("bookdetailsmof.UNITY.CountRows");
         asserts.assertRowCount(counRowsInSource, counRowsInSA);
     }
 

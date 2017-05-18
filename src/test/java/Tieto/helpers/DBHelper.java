@@ -17,7 +17,8 @@ public class DBHelper {
     }
 
     public Connection connToSA() throws SQLException {
-        return DriverManager.getConnection("jdbc:sqlserver://10.45.1.122;databaseName=StagingAreaTest;user=sa;password=JGdedf&#fsqwhdc");
+        //return DriverManager.getConnection("jdbc:sqlserver://10.45.1.122;databaseName=StagingAreaTest;user=ssis;password=ssis");
+        return DriverManager.getConnection("jdbc:sqlserver://10.21.11.11;databaseName=StagingAreaTest;user=ssis;password=ssis");
     }
 
     public  Statement stFromConnection(Connection connection) throws SQLException {
@@ -27,8 +28,6 @@ public class DBHelper {
     public  ResultSet rsFromDB(Statement statement, String sql) throws SQLException {
         return statement.executeQuery(sql);
     }
-
-
 
 
 }

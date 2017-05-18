@@ -1,22 +1,22 @@
 package Tieto.tests;
 
-import Tieto.helpers.Asserts;
-import Tieto.helpers.DBHelper;
-import Tieto.helpers.GetDataHelper;
-import org.testng.annotations.Test;
-import ru.yandex.qatools.allure.annotations.Description;
-import ru.yandex.qatools.allure.annotations.Title;
+        import Tieto.helpers.Asserts;
+        import Tieto.helpers.DBHelper;
+        import Tieto.helpers.GetDataHelper;
+        import org.testng.annotations.Test;
+        import ru.yandex.qatools.allure.annotations.Description;
+        import ru.yandex.qatools.allure.annotations.Title;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.*;
+        import java.io.File;
+        import java.io.FileReader;
+        import java.io.IOException;
+        import java.sql.Connection;
+        import java.sql.ResultSet;
+        import java.sql.SQLException;
+        import java.sql.Statement;
+        import java.util.*;
 
-public class getCharges {
+public class BookDetailsMofTests {
     private Asserts asserts = new Asserts();
     private GetDataHelper dh = new GetDataHelper();
     private DBHelper db = new DBHelper();
@@ -26,17 +26,17 @@ public class getCharges {
     private Map<String, Object> mapForSA = new HashMap<String, Object>();
 
 
-    @Description("Сравнение данных записей таблиц GETCHARGES ")
-    @Title("Сравнение данных записей таблиц GETCHARGES в RTest и MSCRUS")
+    @Description("Сравнение данных записей таблиц BOOKDETAILSMOF ")
+    @Title("Сравнение данных записей таблиц BOOKDETAILSMOF в RTest и MSCRUS")
     @Test
     public void RTestVsMSCRUS() throws SQLException, IOException {
         getPropertiesFile();
 //Для маленьких таблиц должен быть выбран count(*). Менять параметр тут.
         int countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
-        String countSelectedRows = dh.getRoonumPool("getCharges.SOURCE.CountRowForPool");
+        String countSelectedRows = dh.getRoonumPool("bookdetailsmof.SOURCE.CountRowForPool");
         ArrayList arrayRows = dh.getArray(countRowsInSource);
-        String sqlfromSource = (properties.getProperty("getCharges.SOURCE.RowByRownumPart1") + countRowsInSource
-                + properties.getProperty("getCharges.SOURCE.RowByRownumPart2"));
+        String sqlfromSource = (properties.getProperty("bookdetailsmof.SOURCE.RowByRownumPart1") + countRowsInSource
+                + properties.getProperty("bookdetailsmof.SOURCE.RowByRownumPart2"));
 //Сравнение данных
         Connection connectionToRTest = db.connToRTest();
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
@@ -49,8 +49,8 @@ public class getCharges {
                 while (rsFromRTest.next()) {
                     mapForSource = dh.getMapFromSource(rsFromRTest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("getCharges.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB")
-                            + " and BOOK_NR = " + rsFromRTest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromRTest.getString("VAREPOST_NR")                            );
+                    String sqlFromSA = (properties.getProperty("bookdetailsmof.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB")
+                            + " and BOOK_NR = " + rsFromRTest.getString("BOOK_NR") + " and SEQ_NR = " + rsFromRTest.getString("SEQ_NR"));
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromRTest.close();
@@ -62,17 +62,17 @@ public class getCharges {
         connectionToRTest.close();
     }
 
-    @Description("Сравнение данных записей таблиц GETCHARGES ")
-    @Title("Сравнение данных записей таблиц GETCHARGES в RTest и UNITY")
+    @Description("Сравнение данных записей таблиц BOOKDETAILSMOF ")
+    @Title("Сравнение данных записей таблиц BOOKDETAILSMOF в RTest и UNITY")
     @Test
     public void ITestVsUNITY() throws SQLException, IOException {
         getPropertiesFile();
 //Для маленьких таблиц должен быть выбран count(*). Менять параметр тут.
         int countRowsInSource = Integer.parseInt(properties.getProperty("system.RownumPool"));
-        String countSelectedRows = dh.getRoonumPool("getCharges.SOURCE.CountRowForPool");
+        String countSelectedRows = dh.getRoonumPool("bookdetailsmof.SOURCE.CountRowForPool");
         ArrayList arrayRows = dh.getArray(countRowsInSource);
-        String sqlfromSource = (properties.getProperty("getCharges.SOURCE.RowByRownumPart1") + countRowsInSource
-                + properties.getProperty("getCharges.SOURCE.RowByRownumPart2"));
+        String sqlfromSource = (properties.getProperty("bookdetailsmof.SOURCE.RowByRownumPart1") + countRowsInSource
+                + properties.getProperty("bookdetailsmof.SOURCE.RowByRownumPart2"));
 //Сравнение данных
         Connection connectionToITest = db.connToITest();
         Statement statmentForITest = db.stFromConnection(connectionToITest);
@@ -85,8 +85,8 @@ public class getCharges {
                 while (rsFromITest.next()) {
                     mapForSource = dh.getMapFromSource(rsFromITest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("getCharges.UNITY.RowByPKFromSA") + " SELSKAB = " + rsFromITest.getString("SELSKAB")
-                            + " and BOOK_NR = " + rsFromITest.getString("BOOK_NR") + " and VAREPOST_NR = " + rsFromITest.getString("VAREPOST_NR")                        );
+                    String sqlFromSA = (properties.getProperty("bookdetailsmof.UNITY.RowByPKFromSA") + " SELSKAB = " + rsFromITest.getString("SELSKAB")
+                            + " and BOOK_NR = " + rsFromITest.getString("BOOK_NR") + " and SEQ_NR = " + rsFromITest.getString("SEQ_NR"));
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromITest.close();
