@@ -40,12 +40,37 @@ public class GetDataHelper {
         return mapForSA;
     }
 
+    public Map<String, Object> getMapFromSAForSum(int mapForRTestSize, String sql) throws SQLException {
+        Connection connectionToSA = db.connToSA();
+        Statement stForSA = db.stFromConnection(connectionToSA);
+        ResultSet rsFromSA = db.rsFromDB(stForSA, sql);
+        Map<String, Object> mapForSA = new HashMap<String, Object>();
+
+        while (rsFromSA.next()) {
+            for (int l = 1; l <= mapForRTestSize; l++) {
+           // for (int l = 1; l <= rsFromSA.getMetaData().getColumnCount(); l++) {
+                mapForSA.put(rsFromSA.getMetaData().getColumnName(l), rsFromSA.getObject(l));
+            }
+        }
+        rsFromSA.close();
+        stForSA.close();
+        connectionToSA.close();
+        return mapForSA;
+    }
+
 
     public Map<String, Object> getMapFromSource(ResultSet rsFromSource) throws SQLException {
         for (int k = 1; k <= rsFromSource.getMetaData().getColumnCount(); k++) {
             mapForSource.put(rsFromSource.getMetaData().getColumnName(k), rsFromSource.getObject(k));
         }
         mapForSource.remove("RN");
+        return mapForSource;
+    }
+
+    public Map<String, Object> getMapFromSourceForSumm(ResultSet rsFromSource) throws SQLException {
+        for (int k = 1; k <= rsFromSource.getMetaData().getColumnCount(); k++) {
+            mapForSource.put(rsFromSource.getMetaData().getColumnName(k), rsFromSource.getObject(k));
+        }
         return mapForSource;
     }
 
@@ -78,7 +103,7 @@ public class GetDataHelper {
     public int getCountRowsInITest(String table) throws SQLException, IOException {
         getPropertiesFile();
         String sql = properties.getProperty(table);
-        System.out.println("Запрос колв-ва строк из ITest: " + sql);
+        // System.out.println("Запрос колв-ва строк из ITest: " + sql);
         Connection connectionToITest = db.connToITest();
         Statement statmentForITest = db.stFromConnection(connectionToITest);
         ResultSet rsCountRowFromITest = db.rsFromDB(statmentForITest, sql);
@@ -95,7 +120,7 @@ public class GetDataHelper {
     public int getCountRowsInSA(String table) throws IOException, SQLException {
         getPropertiesFile();
         String sql = properties.getProperty(table);
-        System.out.println("Запрос кол-ва строк из SA: " + sql);
+        // System.out.println("Запрос кол-ва строк из SA: " + sql);
         Connection connectionToSA = db.connToSA();
         Statement statmentForSA = db.stFromConnection(connectionToSA);
         ResultSet rsCountRowFromSA = db.rsFromDB(statmentForSA, sql);
@@ -112,7 +137,7 @@ public class GetDataHelper {
     public int getCountRowsInRTest(String table) throws IOException, SQLException {
         getPropertiesFile();
         String sql = properties.getProperty(table);
-        System.out.println("Запрос кол-ва строк из RTest: " + sql);
+        //System.out.println("Запрос кол-ва строк из RTest: " + sql);
         Connection connectionToRTest = db.connToRTest();
         Statement statmentForRTest = db.stFromConnection(connectionToRTest);
         ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, sql);
@@ -127,7 +152,7 @@ public class GetDataHelper {
     }
 
 
-    public String getRoonumPoolForSmallTable(String parametrForTable ) throws IOException {
+    public String getRoonumPoolForSmallTable(String parametrForTable) throws IOException {
         getPropertiesFile();
         String sql = properties.getProperty(parametrForTable);
         System.out.println("Запрос для пула, из которого будут выбраны записи: " + sql);

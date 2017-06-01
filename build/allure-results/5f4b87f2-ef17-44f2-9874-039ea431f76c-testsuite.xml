@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1495519855148" stop="1495519859930">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1495519855265" stop="1495519859665" status="passed">
+            <name>ORDRE_LIN_TestParameterFromITest</name>
+            <steps>
+                <step start="1495519859658" stop="1495519859662" status="passed">
+                    <name>matchMaps</name>
+                    <title>Сравнение данных записи в таблицах</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>

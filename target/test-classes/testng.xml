@@ -6,6 +6,7 @@
             <class name="Tieto.tests.AbPostTests" />
             <class name="Tieto.tests.AdresseTests" />
             <class name="Tieto.tests.BogfTransTests" />
+            <class name="Tieto.tests.BookDetailsMofTests" />
             <class name="Tieto.tests.BookDetailsTests" />
             <class name="Tieto.tests.BookEventTests" />
             <class name="Tieto.tests.BookFakTests" />

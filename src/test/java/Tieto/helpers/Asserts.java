@@ -18,8 +18,8 @@ public class Asserts {
 
     @Step ("Сравнение данных записи в таблицах")
     public void matchMaps(Map<String, Object> mapSource, Map<String, Object> mapSA) {
-        //System.out.println("Map from Source = " + mapSource);
-        // System.out.println("Map from StArea = " + mapSA);
+        System.out.println("Map from Source = " + mapSource);
+         System.out.println("Map from StArea = " + mapSA);
 
         if (mapSA.size() == 0) {
             System.err.println("Record in StagingArea not found!");

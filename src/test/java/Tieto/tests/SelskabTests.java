@@ -50,8 +50,6 @@ public class SelskabTests {
                     mapForSource = dh.getMapFromSource(rsFromRTest);
 // У таблицы собственные ключи. Если менять, то тут.
                     String sqlFromSA = (properties.getProperty("selskab.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB"));
-
-
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromRTest.close();
