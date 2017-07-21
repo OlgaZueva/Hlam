@@ -15,7 +15,9 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-
+/*
+Тесты по запросам Виктора Партологи. Для ПСИ нужны были контрольные запросы на суммы по нескольким таблицам. К тестированию системы в целом не имеет отношения.
+ */
 public class ZQueriesWithSums {
 
     private Properties properties = new Properties();
