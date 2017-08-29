@@ -1,42 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="RTestSuit" verbose="1" >
-    <test name="AllTables" >
+<suite name="RTestSuit" verbose="1">
+    <test name="AllTables">
         <classes>
-            <class name="Tieto.tests.AbPostTests" />
-            <class name="Tieto.tests.AdresseTests" />
-            <class name="Tieto.tests.BogfTransTests" />
-            <class name="Tieto.tests.BookDetailsMofTests" />
-            <class name="Tieto.tests.BookDetailsTests" />
-            <class name="Tieto.tests.BookEventTests" />
-            <class name="Tieto.tests.BookFakTests" />
-            <class name="Tieto.tests.BookGodsTests" />
-            <class name="Tieto.tests.BookKorTests" />
-            <class name="Tieto.tests.BookLinTests" />
-            <class name="Tieto.tests.BookManifestsTests" />
-            <class name="Tieto.tests.BookMftFileTests" />
-            <class name="Tieto.tests.BookMftRemarksTests" />
-            <class name="Tieto.tests.BookTests" />
-            <class name="Tieto.tests.BookVesselTests" />
-            <class name="Tieto.tests.ContHollidayTests" />
-            <class name="Tieto.tests.ContRepTests" />
-            <class name="Tieto.tests.EdiKonvTests" />
-            <class name="Tieto.tests.ExpVesselTests" />
-            <class name="Tieto.tests.FaktPostTests" />
-            <class name="Tieto.tests.HenvisTests" />
-            <class name="Tieto.tests.KundeTests" />
-            <class name="Tieto.tests.OrdreLinTests" />
-            <class name="Tieto.tests.OrdreTests" />
-            <class name="Tieto.tests.SagKursTests" />
-            <class name="Tieto.tests.SagTests" />
-            <class name="Tieto.tests.ShipKursTests" />
-            <class name="Tieto.tests.AdgangTests" />
-            <class name="Tieto.tests.AdgangLinTests" />
-            <class name="Tieto.tests.BookDryPortsTests" />
-            <class name="Tieto.tests.ControlOfficeTests" />
-            <class name="Tieto.tests.ContTypeTests" />
-            <class name="Tieto.tests.SelskabTests" />
-            <class name="Tieto.tests.UtsConstantsTests" />
+            <class name="Tieto.tests.ContBevTests"/>
+            <class name="Tieto.tests.ContRulesTests"/>
+            <class name="Tieto.tests.ContMasterTests"/>
+            <class name="Tieto.tests.CstContEventTests"/>
+            <class name="Tieto.tests.DemurrageTests"/>
+            <class name="Tieto.tests.VgmTests"/>
+            <class name="Tieto.tests.VgmCodesTests"/>
+            <class name="Tieto.tests.ServiceTests"/>
+            <class name="Tieto.tests.BookBemInternalTests"/>
+            <class name="Tieto.tests.KontorTests"/>
+            <class name="Tieto.tests.CommodityTests"/>
+            <class name="Tieto.tests.StedBarTests"/>
         </classes>
     </test>
 

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1503997755805" stop="1503997978911">
+    <name>Default Suite</name>
+    <test-cases>
+        <test-case start="1503997755930" stop="1503997761472" status="passed">
+            <name>BookBemInternalITestVsUNITY</name>
+            <steps>
+                <step start="1503997761446" stop="1503997761462" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 40 822, в SA: 40 822 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997761682" stop="1503997763715" status="passed">
+            <name>BookBemInternalRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997763715" stop="1503997763715" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 3 395, в SA: 3 395 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997763726" stop="1503997766979" status="passed">
+            <name>CommodityITestVsUNITY</name>
+            <steps>
+                <step start="1503997766978" stop="1503997766979" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 5 204 350, в SA: 5 204 350 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997766985" stop="1503997769082" status="passed">
+            <name>CommodityRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997769082" stop="1503997769082" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 212 688, в SA: 212 688 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997769086" stop="1503997771350" status="passed">
+            <name>ContBevITestVsUNITY</name>
+            <steps>
+                <step start="1503997771349" stop="1503997771349" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 1 565, в SA: 1 565 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997771358" stop="1503997773343" status="passed">
+            <name>ContBevRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997773343" stop="1503997773343" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 66, в SA: 66 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997773346" stop="1503997779147" status="passed">
+            <name>ContMasterITestVsUNITY</name>
+            <steps>
+                <step start="1503997779146" stop="1503997779146" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 2 747 707, в SA: 2 747 707 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997779149" stop="1503997784223" status="passed">
+            <name>ContMasterRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997784222" stop="1503997784222" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 2 747 707, в SA: 2 747 707 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997784226" stop="1503997788397" status="passed">
+            <name>ContRulesITestVsUNITY</name>
+            <steps>
+                <step start="1503997788397" stop="1503997788397" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 17 204, в SA: 17 204 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997788401" stop="1503997790387" status="passed">
+            <name>ContRulesRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997790385" stop="1503997790387" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 323, в SA: 323 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997790390" stop="1503997794669" status="passed">
+            <name>CtsContEventITestVsUNITY</name>
+            <steps>
+                <step start="1503997794668" stop="1503997794668" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 265 771, в SA: 265 771 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997794671" stop="1503997796845" status="passed">
+            <name>CtsContEventRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997796845" stop="1503997796845" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 207 150, в SA: 207 150 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997796849" stop="1503997901804" status="passed">
+            <name>DemurrageITestVsUNITY</name>
+            <steps>
+                <step start="1503997901804" stop="1503997901804" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 169 250, в SA: 169 250 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997901807" stop="1503997904761" status="passed">
+            <name>DemurrageRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997904761" stop="1503997904761" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 152 126, в SA: 152 126 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997904764" stop="1503997906716" status="passed">
+            <name>KontorITestVsUNITY</name>
+            <steps>
+                <step start="1503997906716" stop="1503997906716" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 51, в SA: 51 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997906719" stop="1503997908737" status="passed">
+            <name>KontorRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997908737" stop="1503997908737" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 17, в SA: 17 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997908739" stop="1503997910726" status="passed">
+            <name>ServiceITestVsUNITY</name>
+            <steps>
+                <step start="1503997910725" stop="1503997910726" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 1 587, в SA: 1 587 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997910730" stop="1503997912687" status="passed">
+            <name>ServiceRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997912687" stop="1503997912687" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 60, в SA: 60 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997912689" stop="1503997915059" status="passed">
+            <name>StedBarITestVsUNITY</name>
+            <steps>
+                <step start="1503997915059" stop="1503997915059" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 4 124, в SA: 4 124 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997915062" stop="1503997916986" status="passed">
+            <name>StedBarRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997916986" stop="1503997916986" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 113, в SA: 113 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997916987" stop="1503997918884" status="passed">
+            <name>VgmCodesITestVsUNITY</name>
+            <steps>
+                <step start="1503997918884" stop="1503997918884" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 63, в SA: 63 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997918886" stop="1503997921231" status="passed">
+            <name>VgmCodesRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997921231" stop="1503997921231" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 63, в SA: 63 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997921233" stop="1503997976736" status="passed">
+            <name>VgmITestVsUNITY</name>
+            <steps>
+                <step start="1503997976736" stop="1503997976736" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 40 169, в SA: 40 169 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+        <test-case start="1503997976738" stop="1503997978899" status="passed">
+            <name>VgmRTestVsMSCRUS</name>
+            <steps>
+                <step start="1503997978899" stop="1503997978899" status="passed">
+                    <name>assertRowCount</name>
+                    <title>Сравнение общего числа записей в таблицах: В Source: 11 686, в SA: 11 686 </title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments/>
+            <labels/>
+        </test-case>
+    </test-cases>
+    <labels/>
+</ns2:test-suite>
