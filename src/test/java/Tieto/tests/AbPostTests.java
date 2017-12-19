@@ -39,25 +39,25 @@ public class AbPostTests {
                 + properties.getProperty("abpost.SOURCE.RowByRownumPart2"));
 //Сравнение данных
         Connection connectionToRTest = db.connToRTest();
-        Statement statmentForRTest = db.stFromConnection(connectionToRTest);
-        ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, countSelectedRows);
-        while (rsCountRowFromRTest.next()) {
-            for (int i = 0; i < arrayRows.size(); i++) {
-                String sqlRowByRownum = sqlfromSource + arrayRows.get(i);
-                //System.out.println("SQL from Source:" + sqlRowByRownum);
-                ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
-                while (rsFromRTest.next()) {
-                    mapForSource = dh.getMapFromSource(rsFromRTest);
+            Statement statmentForRTest = db.stFromConnection(connectionToRTest);
+            ResultSet rsCountRowFromRTest = db.rsFromDB(statmentForRTest, countSelectedRows);
+            while (rsCountRowFromRTest.next()) {
+                for (int i = 0; i < arrayRows.size(); i++) {
+                    String sqlRowByRownum = sqlfromSource + arrayRows.get(i);
+                    //System.out.println("SQL from Source:" + sqlRowByRownum);
+                    ResultSet rsFromRTest = db.rsFromDB(statmentForRTest, sqlRowByRownum);
+                    while (rsFromRTest.next()) {
+                        mapForSource = dh.getMapFromSource(rsFromRTest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("abpost.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB")
-                            + " and LOBE_NR = " + rsFromRTest.getString("LOBE_NR") + " and KUNDE = " + rsFromRTest.getString("KUNDE")
-                            + " and K_TYPE = '" + rsFromRTest.getString("K_TYPE") + "' and FAKTURANR = '" + rsFromRTest.getString("FAKTURANR")
-                            + "' and F_TYPE = '" + rsFromRTest.getString("F_TYPE")+"'");
-                    mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
+                        String sqlFromSA = (properties.getProperty("abpost.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB")
+                                + " and LOBE_NR = " + rsFromRTest.getString("LOBE_NR") + " and KUNDE = " + rsFromRTest.getString("KUNDE")
+                                + " and K_TYPE = '" + rsFromRTest.getString("K_TYPE") + "' and FAKTURANR = '" + rsFromRTest.getString("FAKTURANR")
+                                + "' and F_TYPE = '" + rsFromRTest.getString("F_TYPE")+"'");
+                        mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
+                    }
+                    rsFromRTest.close();
+                    asserts.matchMaps(mapForSource, mapForSA);
                 }
-                rsFromRTest.close();
-                asserts.matchMaps(mapForSource, mapForSA);
-            }
         }
         rsCountRowFromRTest.close();
         statmentForRTest.close();

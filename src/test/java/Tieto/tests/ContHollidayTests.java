@@ -49,8 +49,8 @@ public class ContHollidayTests {
                 while (rsFromRTest.next()) {
                     mapForSource = dh.getMapFromSource(rsFromRTest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("contholliday.MSCRUS.RowByPKFromSA") + " SELSKAB = " + rsFromRTest.getString("SELSKAB")
-                            + " and DATO = '" + rsFromRTest.getString("DATO") + "' and AFDELING = '" + rsFromRTest.getString("AFDELING") +"'");
+                    String sqlFromSA = (properties.getProperty("contholliday.MSCRUS.RowByPKFromSA") + " CONT_HOLLIDAY_ID = " + rsFromRTest.getString("CONT_HOLLIDAY_ID"));
+
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromRTest.close();
@@ -85,8 +85,8 @@ public class ContHollidayTests {
                 while (rsFromITest.next()) {
                     mapForSource = dh.getMapFromSource(rsFromITest);
 // У таблицы собственные ключи. Если менять, то тут.
-                    String sqlFromSA = (properties.getProperty("contholliday.UNITY.RowByPKFromSA") + " SELSKAB = " + rsFromITest.getString("SELSKAB")
-                            + " and DATO = '" + rsFromITest.getString("DATO") + "' and AFDELING = '" + rsFromITest.getString("AFDELING") +"'");
+                    String sqlFromSA = (properties.getProperty("contholliday.UNITY.RowByPKFromSA") + " CONT_HOLLIDAY_ID = " + rsFromITest.getString("CONT_HOLLIDAY_ID"));
+                            //+ " and DATO = '" + rsFromITest.getString("DATO") + "' and AFDELING = '" + rsFromITest.getString("AFDELING") +"'");
                     mapForSA = dh.getMapFromSA(mapForSource.size(), sqlFromSA);
                 }
                 rsFromITest.close();
